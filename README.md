@@ -2,7 +2,7 @@
 
 ## Brief overview
 
-This is a project for ABB IT Challenge 2016, made by the Progress Bears team.
+This is a project for ABB IT Challenge 2016, made by the **ProgressBears** team.
 Working name is _"Compass"_.
 
 The aim of this project is to provide a system, allowing universities, schools and other
@@ -14,7 +14,7 @@ For scholar organizations - a great promotion tool.
 
 ## Under the hood
 
-The system is a web application, built with Java Spark framework and _[many different technologies go here]_. 
+The system is a web application, built with Java Spark framework, MyBatis and _[many different technologies go here]_. 
 
 ## Setting up and running
 
