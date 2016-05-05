@@ -39,6 +39,18 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${version.slf4j}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${version.mybatis}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${version.mysql-connector}</version>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -47,6 +59,8 @@
         <version.log4j>1.2.17</version.log4j>
         <version.maven-compiler>3.3</version.maven-compiler>
         <version.slf4j>1.7.21</version.slf4j>
+        <version.mybatis>3.4.0</version.mybatis>
+        <version.mysql-connector>5.1.38</version.mysql-connector>
     </properties>
 
     <build>
