@@ -45,7 +45,7 @@ class QuestionOption extends React.Component {
 class Question extends React.Component {
 	static propTypes = {
 		title: React.PropTypes.string.isRequired,
-		children: React.PropTypes.arrayOf(React.PropTypes.instanceOf(QuestionOption)).isRequired
+		children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
 	}
 
 	constructor(props) {
@@ -61,16 +61,16 @@ class Question extends React.Component {
 	}
 
 	render() {
-		var title = this.props.title,
-			options = React.Children.map(this.props.children, (opt) => {
-				return <QuestionOption {...opt.props} onSelect={ (opt) => this.selectOption(opt) } />
-			});
+		var title = this.props.title;
+			// options = React.Children.map(this.props.children, (opt) => {
+			// 	return <QuestionOption {...opt.props} onSelect={ (opt) => this.selectOption(opt) } />
+			// });
 
 		return (
 			<div className="question">
 				<div className="title">{ title }</div>
 
-				{ options }
+				{ this.props.children }
 			</div>
 		);
 	}
@@ -78,7 +78,7 @@ class Question extends React.Component {
 
 class Questionnaire extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.arrayOf(Question).isRequired
+		children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
 	}
 
 	constructor(props) {
@@ -95,11 +95,11 @@ class Questionnaire extends React.Component {
 	}
 
 	prevQuestion() {
-		this.setState({ currentQuestionIdx: (this.state.currentQuestionIdx - 1) % this.state.questionCount });
+		this.setState({ currentQuestionIdx: (this.state.currentQuestionIdx - 1 < 0) ? this.state.questionCount - 1 : this.state.currentQuestionIdx - 1 });
 	}
 
 	nextQuestion() {
-		this.setState({ currentQuestionIdx: (this.state.currentQuestionIdx - 1) % this.state.questionCount });
+		this.setState({ currentQuestionIdx: (this.state.currentQuestionIdx + 1) % this.state.questionCount });
 	}
 
 	render() {
@@ -109,7 +109,7 @@ class Questionnaire extends React.Component {
 			<div className="questionnaire">
 				<button onClick={ () => this.prevQuestion() }>Previous Question</button>
 
-				<Question {...question} />
+				{question}
 
 				<button onClick={ () => this.nextQuestion() }>Next Question</button>
 			</div>
