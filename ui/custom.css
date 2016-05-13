@@ -1,4 +1,51 @@
-.hide {
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+    margin: 0;
+    font-family: 'Roboto';
+}
+
+.container {
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.fill-parent {
+    flex-grow: 1;
+}
+
+.vcenter {
+    justify-content: center;
+}
+
+.hcenter {
+    align-items: center;
+}
+
+.questionnaire {
+    margin-top: 20px;
+}
+
+.bottom-button {
+    position: absolute; 
+    bottom: 20px; 
+    width: 100vw;
+}
+
+.material-icons.md-light {
+    color: #fff;
+}
+
+/*.hide {
     display: none!important
 }
 
@@ -204,4 +251,4 @@
     .hidden-xl {
         display:none!important
     }
-}
+}*/
