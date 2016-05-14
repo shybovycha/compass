@@ -21,7 +21,7 @@ export default React.createClass({
         return (
             <Card>
                 <CardText>
-                    This application will guide you through a hard path of 
+                    This application will guide you through a hard path of
                     choosing your profession in a smooth and easy way: you
                     will be asked simple questions of one- or multiple choice.
                     And then, the system will match the best universities,

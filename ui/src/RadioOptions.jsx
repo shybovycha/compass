@@ -12,10 +12,10 @@ export default React.createClass({
     render: function () {
         return (
             <RadioButtonGroup defaultSelected={ this.props.checked[0] }>
-                { this.props.options.map(option => 
-                    <RadioButton 
-                        value={ option.optionId } 
-                        label={ option.value } 
+                { this.props.options.map(option =>
+                    <RadioButton
+                        value={ option.optionId }
+                        label={ option.value }
                         disabled={ this.props.disabled } />
                     )
                 }

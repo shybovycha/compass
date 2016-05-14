@@ -27,15 +27,15 @@ export default React.createClass({
 
     getOptions: function () {
         if (this.props.style == 'SINGLE_CHOICE')
-            return <RadioOptions 
-                options={ this.props.options } 
-                disabled={ this.state.disabled } 
+            return <RadioOptions
+                options={ this.props.options }
+                disabled={ this.state.disabled }
                 checked={ this.state.answer } />;
 
         else if (this.props.style == 'MULTIPLE_CHOICE')
-            return <CheckboxOptions 
-                options={ this.props.options } 
-                disabled={ this.state.disabled } 
+            return <CheckboxOptions
+                options={ this.props.options }
+                disabled={ this.state.disabled }
                 checked={ this.state.answer } />;
 
         // else if (this.props.style == 'RANKING')
@@ -43,7 +43,10 @@ export default React.createClass({
     },
 
     getImage: function () {
-        return this.props.imgUrl && (
+        if (!this.props.imgUrl)
+            return '';
+
+        return (
             <CardMedia>
                 <img src={ this.props.imgUrl } />
             </CardMedia>
@@ -51,21 +54,25 @@ export default React.createClass({
     },
 
     getContent: function () {
-        return this.content && 
+        if (!this.content)
+            return '';
+
+        return (
             <CardText>
                 { this.props.content }
-            </CardText>;
+            </CardText>
+        );
     },
-    
+
     render: function () {
         return (
             <Card className="question">
                 { this.getImage() }
 
                 <CardTitle title={ this.props.title } />
-                
+
                 { this.getContent() }
-                
+
                 <CardActions>
                     { this.getOptions() }
                 </CardActions>

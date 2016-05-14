@@ -15,8 +15,8 @@ export default React.createClass({
     },
 
     getClassName: function () {
-        var theme = (this.props.light && 'md-light') || '';
-        
+        var theme = this.props.light ? 'md-light' : '';
+
         return `material-icons md-${this.props.size} ${theme}`;
     },
 

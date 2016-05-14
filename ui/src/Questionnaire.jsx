@@ -6,6 +6,8 @@ import MatchedOrgs from './MatchedOrgs';
 import Question from './Question';
 import Icon from './Icon';
 
+import Stub from './Stub';
+
 export default React.createClass({
     propTypes: {
         title: React.PropTypes.string,
@@ -15,11 +17,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             // hardcode
-            questions: [
-                { title: 'question 1', imgUrl: 'https://unsplash.it/200/100?image=1&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q1o1', value: 'option 1' }, { optionId: 'q1o2', value: 'option 2' }, { optionId: 'q1o3', value: 'option 3' }] },
-                { title: 'q2', imgUrl: 'https://unsplash.it/200/100?image=2&blur', style: 'MULTIPLE_CHOICE', options: [{ optionId: 'q2o1', value: 'option #1' }, { optionId: 'q2o2', value: 'option #2' }, { optionId: 'q2o3', value: 'option #3' }] },
-                { title: 'quuuestion 3', imgUrl: 'https://unsplash.it/200/100?image=3&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }
-            ],
+            questions: Stub.questions,
             currentQuestion: 0,
             matchedOrgs: 0
         };
@@ -35,11 +33,7 @@ export default React.createClass({
     },
 
     getSearch: function () {
-        var searches = [
-            { id: '1', createdAt: '2016-04-12', matchedOrgs: [ { id: '1', title: 'Munich Technological University' }, { id: '2', title: 'FHWien der WKW' }, { id: '3', title: 'EPAM Java Academy' } ] },
-            { id: '2', createdAt: '2016-05-07', matchedOrgs: [ { id: '4', title: 'Massachussets University Of Technology' }, { id: '5', title: 'Uniwersytet Jagielloński' }, { id: '6', title: 'Akademia Górniczo-Huthicza' }, { id: '7', title: 'University Of Cambridge' } ] },
-            { id: '3', createdAt: '2016-05-14', matchedOrgs: [ { id: '8', title: 'Politechnika Wrocławska' }, { id: '6', title: 'Akademia Górniczo-Huthicza'}, { id: '5', title: 'Uniwersytet Jagielloński' } ] }
-        ];
+        var searches = Stub.searches;
 
         return searches[Math.floor(Math.random() * searches.length)];
     },

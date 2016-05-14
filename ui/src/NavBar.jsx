@@ -15,10 +15,10 @@ export default React.createClass({
         return (
             <AppBar
                 title={ this.props.title }
-                iconElementLeft={ 
-                    <IconButton onClick={ this.props.onClick }> 
+                iconElementLeft={
+                    <IconButton onClick={ this.props.onClick }>
                         <Icon light={ true } name="menu" />
-                    </IconButton> 
+                    </IconButton>
                 } />
         );
     }

@@ -42,9 +42,9 @@ export default React.createClass({
             <Card className="question" expanded={ this.props.expanded }>
                 { this.props.expanded ?
                     <CardHeader title={ this.props.title } /> :
-                    <CardHeader title={ this.props.title } actAsExpander={ true } showExpandableButton={ true } /> 
+                    <CardHeader title={ this.props.title } actAsExpander={ true } showExpandableButton={ true } />
                 }
-                
+
                 <CardText expandable={ true }>
                     <div>Matched universities:</div>
 
@@ -56,7 +56,7 @@ export default React.createClass({
                         </div>)
                     }
                 </CardText>
-                
+
                 { this.props.showLink == false ? '' :
                     <CardActions expandable={ true }>
                         <RaisedButton
