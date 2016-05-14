@@ -6,13 +6,21 @@ import QuestionOption from './QuestionOption';
 
 export default React.createClass({
     propTypes: {
-        options: React.PropTypes.array
+        options: React.PropTypes.array,
+        disabled: React.PropTypes.boolean,
+        checked: React.PropTypes.array
     },
 
     render: function () {
         return (
-            <RadioButtonGroup>
-                { this.props.options.map(option => <RadioButton value={ option.optionId } label={ option.value } />)}
+            <RadioButtonGroup defaultSelected={ this.props.checked[0] }>
+                { this.props.options.map(option => 
+                    <RadioButton 
+                        value={ option.optionId } 
+                        label={ option.value } 
+                        disabled={ this.props.disabled } />
+                    )
+                }
             </RadioButtonGroup>
         );
     }

@@ -10,12 +10,14 @@ export default React.createClass({
         imgUrl: React.PropTypes.string,
         content: React.PropTypes.string,
         style: React.PropTypes.oneOf([ 'SINGLE_CHOICE', 'MULTIPLE_CHOICE', 'RANKING' ]),
-        options: React.PropTypes.array
+        options: React.PropTypes.array,
+        answer: React.PropTypes.array
     },
 
     getInitialState: function () {
         return {
-            answer: []
+            answer: this.props.answer || [],
+            disabled: typeof(this.props.answer) !== 'undefined'
         };
     },
 
@@ -25,9 +27,17 @@ export default React.createClass({
 
     getOptions: function () {
         if (this.props.style == 'SINGLE_CHOICE')
-            return <RadioOptions options={ this.props.options } />;
+            return <RadioOptions 
+                options={ this.props.options } 
+                disabled={ this.state.disabled } 
+                checked={ this.state.answer } />;
+
         else if (this.props.style == 'MULTIPLE_CHOICE')
-            return <CheckboxOptions options={ this.props.options } />;
+            return <CheckboxOptions 
+                options={ this.props.options } 
+                disabled={ this.state.disabled } 
+                checked={ this.state.answer } />;
+
         // else if (this.props.style == 'RANKING')
         //     return <RankingOptions options={ this.props.options } />;
     },
@@ -49,7 +59,7 @@ export default React.createClass({
     
     render: function () {
         return (
-            <Card>
+            <Card className="question">
                 { this.getImage() }
 
                 <CardTitle title={ this.props.title } />

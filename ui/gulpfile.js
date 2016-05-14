@@ -9,20 +9,24 @@ var watchify = require('watchify');
 var browserifyOptions = Object.assign(watchify.args, {
     entries: './src/App.jsx',
     debug: true,
-    extensions: ['.jsx'] 
+    extensions: ['.jsx']
 });
 
-var watcher = watchify(browserify(browserifyOptions));
+function bundle(bundler) {
+    return function () {
+        console.log('Rebuilding...');
 
-function bundle() {
-    return watcher
-        .transform("babelify", { presets: ["es2015", "react"] })
-        .bundle()
-        .on('error', gutil.log)
-        .pipe(source('bundle.js'))
-        .pipe(gulp.dest('./build'));
-};
+        return bundler
+            .transform("babelify", { presets: ["es2015", "react"] })
+            .bundle()
+            .on('error', gutil.log)
+            .pipe(source('bundle.js'))
+            .pipe(gulp.dest('./build'));
+    }
+}
 
-watcher.on('update', bundle)
+watcher = watchify(browserify(browserifyOptions));
 
-gulp.task('default', bundle);
+watcher.on('update', bundle(watcher))
+
+gulp.task('default', bundle(watcher));

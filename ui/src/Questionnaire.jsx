@@ -10,29 +10,39 @@ export default React.createClass({
         questions: React.PropTypes.array
     },
 
-    state: {
-        showDrawer: true
+    getInitialState: function () {
+        return {
+            showDrawer: false,
+
+            // hardcode here again
+            currentQuestion: 0
+        };
+    },
+
+    getQuestion: function () {
+        // hardcode here for MVP
+        return this.props.questions[this.state.currentQuestion];
+    },
+
+    nextQuestion: function () {
+        this.setState({ currentQuestion: (this.state.currentQuestion + 1) % this.props.questions.length });
     },
 
     render: function () {
         return (
-            <div className="questionnaire container">
-                <div className="row">
-                    <div className="col fill-parent hcenter">
-                        <RaisedButton
-                            icon={ <i className="material-icons md-36">keyboard_arrow_up</i> }
-                        />
-                    </div>
-                </div>
-
+            <div className="questionnaire container col">
                 <div className="col fill-parent">
-                    { this.props.questions.map(q => <Question {...q} />) }
+                    <Question {...this.getQuestion()} />
                 </div>
 
                 <div className="row bottom-button">
                     <div className="col fill-parent hcenter">
                         <RaisedButton
-                            icon={ <i className="material-icons md-36">keyboard_arrow_down</i> }
+                            icon={ <i className="material-icons md-36">keyboard_arrow_right</i> }
+                            onClick={ this.nextQuestion }
+                            label="Next question"
+                            labelPosition="before"
+                            backgroundColor="#a4c639"
                         />
                     </div>
                 </div>

@@ -12,13 +12,16 @@ import MenuItem from 'material-ui/MenuItem';
 
 import Dashboard from './Dashboard';
 import DrawerMenu from './DrawerMenu';
-import Questionnaire from './Questionnaire';
 import NavBar from './NavBar';
+
+import Questionnaire from './Questionnaire';
+import Search from './Search';
 
 const App = React.createClass({
     propTypes: {
         title: React.PropTypes.string,
-        questions: React.PropTypes.array
+        questions: React.PropTypes.array,
+        answers: React.PropTypes.array
     },
 
     getInitialState: function () {
@@ -46,7 +49,8 @@ const App = React.createClass({
                         <DrawerMenu user={ this.state.user } />
                     </Drawer>
 
-                    <Questionnaire questions={ this.props.questions } />
+                    {<Questionnaire questions={ this.props.questions } />}
+                    {/*<Search answers={ this.props.answers } />*/}
                 </div>
             </MuiThemeProvider>
         );
@@ -54,12 +58,20 @@ const App = React.createClass({
 });
 
 var questions = [
-    { title: 'question 1', style: 'SINGLE_CHOICE', options: [{ optionId: 'q1o1', value: 'option 1' }, { optionId: 'q1o2', value: 'option 2' }, { optionId: 'q1o3', value: 'option 3' }] },
-    { title: 'q2', style: 'MULTIPLE_CHOICE', options: [{ optionId: 'q2o1', value: 'option #1' }, { optionId: 'q2o2', value: 'option #2' }, { optionId: 'q2o3', value: 'option #3' }] },
-    { title: 'q3', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }
+    { title: 'question 1', imgUrl: 'https://unsplash.it/200/100?image=1&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q1o1', value: 'option 1' }, { optionId: 'q1o2', value: 'option 2' }, { optionId: 'q1o3', value: 'option 3' }] },
+    { title: 'q2', imgUrl: 'https://unsplash.it/200/100?image=2&blur', style: 'MULTIPLE_CHOICE', options: [{ optionId: 'q2o1', value: 'option #1' }, { optionId: 'q2o2', value: 'option #2' }, { optionId: 'q2o3', value: 'option #3' }] },
+    { title: 'quuuestion 3', imgUrl: 'https://unsplash.it/200/100?image=3&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }
+];
+
+var answers = [
+    { question: { title: 'question 1', imgUrl: 'https://unsplash.it/200/100?image=1&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q1o1', value: 'option 1' }, { optionId: 'q1o2', value: 'option 2' }, { optionId: 'q1o3', value: 'option 3' }] }, answer: ['q1o2'] },
+    { question: { title: 'q2', imgUrl: 'https://unsplash.it/200/100?image=2&blur', style: 'MULTIPLE_CHOICE', options: [{ optionId: 'q2o1', value: 'option #1' }, { optionId: 'q2o2', value: 'option #2' }, { optionId: 'q2o3', value: 'option #3' }] }, answer: ['q2o1', 'q2o2'] },
+    { question: { title: 'quuuestion 3', imgUrl: 'https://unsplash.it/200/100?image=3&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }, answer: ['q3o3'] },
+    { question: { title: 'quuuestion 3', imgUrl: 'https://unsplash.it/200/100?image=4&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }, answer: ['q3o3'] },
+    { question: { title: 'quuuestion 3', imgUrl: 'https://unsplash.it/200/100?image=5&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }, answer: ['q3o3'] }
 ];
 
 ReactDOM.render(
-    <App title="Compass" questions={ questions } />,
+    <App title="Compass" questions={ questions } answers={ answers } />,
     document.getElementById('app')
 );

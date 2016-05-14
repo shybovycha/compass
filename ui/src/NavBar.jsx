@@ -13,7 +13,11 @@ export default React.createClass({
         return (
             <AppBar
                 title={ this.props.title }
-                iconElementLeft={ <IconButton onClick={ this.props.onClick }> <i className="material-icons md-light md-36">menu</i> </IconButton> } />
+                iconElementLeft={ 
+                    <IconButton onClick={ this.props.onClick }> 
+                        <i className="material-icons md-light md-36">menu</i> 
+                    </IconButton> 
+                } />
         );
     }
 });
