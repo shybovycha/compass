@@ -17,7 +17,7 @@ export default React.createClass({
                 title={ this.props.title }
                 iconElementLeft={ 
                     <IconButton onClick={ this.props.onClick }> 
-                        <Icon light="true" name="menu" />
+                        <Icon light={ true } name="menu" />
                     </IconButton> 
                 } />
         );

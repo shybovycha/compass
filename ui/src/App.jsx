@@ -16,10 +16,6 @@ import OrganizationPage from './OrganizationPage';
 import SidebarMenu from './SidebarMenu';
 
 const App = React.createClass({
-    componentDidMount: function () {
-        injectTapEventPlugin();
-    },
-
     getInitialState: function () {
         return {
             user: {
@@ -49,6 +45,8 @@ const App = React.createClass({
         );
     }
 });
+
+injectTapEventPlugin();
 
 ReactDOM.render(
     <App />,

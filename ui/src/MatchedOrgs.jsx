@@ -8,7 +8,19 @@ import Icon from './Icon';
 
 export default React.createClass({
     propTypes: {
-        search: React.PropTypes.object
+        search: React.PropTypes.object,
+        title: React.PropTypes.string,
+        expanded: React.PropTypes.bool,
+        showLink: React.PropTypes.bool,
+        maxOrgs: React.PropTypes.number
+    },
+
+    getDefaultProps: function () {
+        return {
+            expanded: false,
+            showLink: true,
+            maxOrgs: 3
+        };
     },
 
     getInitialState: function () {
@@ -27,13 +39,16 @@ export default React.createClass({
 
     render: function () {
         return (
-            <Card className="question">
-                <CardTitle subtitle={ 'Completed on ' + this.props.search.createdAt } />
+            <Card className="question" expanded={ this.props.expanded }>
+                { this.props.expanded ?
+                    <CardHeader title={ this.props.title } /> :
+                    <CardHeader title={ this.props.title } actAsExpander={ true } showExpandableButton={ true } /> 
+                }
                 
-                <CardText>
+                <CardText expandable={ true }>
                     <div>Matched universities:</div>
 
-                    { this.props.search.matchedOrgs.map(org => <div className="margin-top">
+                    { this.props.search.matchedOrgs.slice(0, this.state.maxOrgs).map(org => <div className="margin-top">
                             <RaisedButton
                                 onClick={ this.getShowOrgHandler(org) }
                                 label={ org.title }
@@ -42,15 +57,16 @@ export default React.createClass({
                     }
                 </CardText>
                 
-                <CardActions>
-                    <RaisedButton
+                { this.props.showLink == false ? '' :
+                    <CardActions expandable={ true }>
+                        <RaisedButton
                             icon={ <Icon name="keyboard_arrow_right" /> }
                             onClick={ this.showSearch }
                             label="Details"
                             labelPosition="before"
                             backgroundColor="#a4c639"
                         />
-                </CardActions>
+                    </CardActions> }
             </Card>
         );
     }

@@ -2,12 +2,10 @@ import React from 'react';
 
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 
-import QuestionOption from './QuestionOption';
-
 export default React.createClass({
     propTypes: {
         options: React.PropTypes.array,
-        disabled: React.PropTypes.boolean,
+        disabled: React.PropTypes.bool,
         checked: React.PropTypes.array
     },
 
