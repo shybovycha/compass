@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
+import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
+
+import Icon from './Icon';
 
 export default React.createClass({
     propTypes: {
@@ -13,9 +17,9 @@ export default React.createClass({
     render: function () {
         return (
             <div>
-                <MenuItem>{ this.props.user.name }</MenuItem>
-                <MenuItem>My searches</MenuItem>
-                <MenuItem>New search</MenuItem>
+                <MenuItem leftIcon={ <Icon name="account_circle" /> } primaryText={ this.props.user.name } />
+                <MenuItem leftIcon={ <Icon name="access_time" /> } primaryText={ "My searches" } />
+                <MenuItem leftIcon={ <Icon name="search" /> } primaryText={ "New search" } />
             </div>
         );
     }

@@ -54,12 +54,34 @@ body {
     margin: 10px 0;
 }
 
+.question img {
+    max-height: 50vh;
+}
+
 .bottom-button {
     margin-top: 20px; 
 }
 
 .material-icons.md-light {
     color: #fff;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sidebar-item i {
+    margin: 0 10px;
+}
+
+.material-icons {
+    vertical-align: middle;
+}
+
+.margin-top {
+    margin-top: 20px;
 }
 
 /*.hide {

@@ -3,6 +3,8 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 
+import Icon from './Icon';
+
 export default React.createClass({
     propTypes: {
         title: React.PropTypes.string,
@@ -15,7 +17,7 @@ export default React.createClass({
                 title={ this.props.title }
                 iconElementLeft={ 
                     <IconButton onClick={ this.props.onClick }> 
-                        <i className="material-icons md-light md-36">menu</i> 
+                        <Icon light="true" name="menu" />
                     </IconButton> 
                 } />
         );
