@@ -35,7 +35,7 @@ export default React.createClass({
     getSearch: function () {
         var searches = Stub.searches;
 
-        return searches[Math.floor(Math.random() * searches.length)];
+        return searches[0];
     },
 
     render: function () {

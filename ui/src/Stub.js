@@ -42,5 +42,11 @@ export default {
                     { question: { title: 'quuuestion 4', imgUrl: 'https://unsplash.it/200/100?image=4&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }, answer: ['q3o1'] },
                     { question: { title: 'quuuestion 5', imgUrl: 'https://unsplash.it/200/100?image=5&blur', style: 'SINGLE_CHOICE', options: [{ optionId: 'q3o1', value: 'option ##1' }, { optionId: 'q3o2', value: 'option ##2' }, { optionId: 'q3o3', value: 'option ##3' }] }, answer: ['q3o2'] }
                 ] }
-            ]
+            ],
+
+    user: {
+                name: "USERNAME",
+                email: "user@email.com",
+                imgUrl: `https://randomuser.me/api/portraits/med/women/${ Math.floor(Math.random() * 100) }.jpg`
+            }
 }

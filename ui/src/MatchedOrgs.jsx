@@ -39,7 +39,7 @@ export default React.createClass({
 
     render: function () {
         return (
-            <Card className="question" expanded={ this.props.expanded }>
+            <Card className="question" initiallyExpanded={ this.props.expanded }>
                 { this.props.expanded ?
                     <CardHeader title={ this.props.title } /> :
                     <CardHeader title={ this.props.title } actAsExpander={ true } showExpandableButton={ true } />

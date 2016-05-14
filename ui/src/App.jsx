@@ -15,12 +15,12 @@ import OrganizationPage from './OrganizationPage';
 
 import SidebarMenu from './SidebarMenu';
 
+import Stub from './Stub';
+
 const App = React.createClass({
     getInitialState: function () {
         return {
-            user: {
-                name: "USERNAME"
-            }
+            user: Stub.user
         };
     },
 

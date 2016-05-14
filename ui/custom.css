@@ -59,11 +59,27 @@ body {
 }
 
 .bottom-button {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .material-icons.md-light {
     color: #fff;
+}
+
+.sidebar-item.avatar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px 10px 10px;
+}
+
+.sidebar-item.avatar .title {
+    font-weight: bold;
+    line-height: 25px;
+    margin-top: 15px;
+}
+
+.sidebar-item.avatar .subtitle {
+    line-height: 25px;
 }
 
 .sidebar-item {

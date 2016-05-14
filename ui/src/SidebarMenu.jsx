@@ -3,6 +3,7 @@ import { Router, Route, Link, hashHistory } from 'react-router';
 
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import Avatar from 'material-ui/Avatar';
 
 import DrawerMenu from './DrawerMenu';
 import NavBar from './NavBar';
@@ -38,12 +39,11 @@ export default React.createClass({
                 <NavBar title={ this.props.title } onClick={ this.toggleDrawerMenu } />
 
                 <Drawer open={ this.state.showDrawer } docked={ false } onRequestChange={ this.toggleDrawerMenu } className="sidebar">
-                    <NavBar title={ this.props.title } onClick={ this.toggleDrawerMenu } />
-
                     <MenuItem>
-                        <div onClick={ this.goTo("/account") } className="sidebar-item">
-                            <Icon name="account_circle" />
-                            <span>{ this.props.user.name }</span>
+                        <div onClick={ this.goTo("/account") } className="sidebar-item avatar">
+                            <Avatar src={ this.props.user.imgUrl } size={ 80 } />
+                            <div className="title">{ this.props.user.name }</div>
+                            <div className="subtitle">{ this.props.user.email }</div>
                         </div>
                     </MenuItem>
 
