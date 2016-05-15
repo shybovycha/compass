@@ -26,19 +26,21 @@ export default React.createClass({
     },
 
     getInitialState: function () {
-        return {};
+        return {
+            search: this.props.search
+        };
     },
 
     showSearch: function () {
-        hashHistory.push('/search/' + this.props.search.id);
+        hashHistory.push('/search/' + this.state.search.id);
     },
 
-    showOrg: function (org) {
-        hashHistory.push('/org/' + org.id);
+    showCourse: function (course) {
+        hashHistory.push('/course/' + course.id);
     },
 
     render: function () {
-        this.props.search = Object.assign(this.props.search, { matchedOrgs: Stub.organizations.filter(o => this.props.search.matchedOrgs.indexOf(o.id) > -1) });
+        this.state.search = Object.assign(this.state.search, { matchedCourses: Stub.courses.filter(c => this.state.search.matchedCourses.indexOf(c.id) > -1) });
 
         return (
             <Card className="question" initiallyExpanded={ this.props.expanded }>
@@ -48,15 +50,16 @@ export default React.createClass({
                 }
 
                 <CardText expandable={ true }>
-                    <div>Matched universities:</div>
+                    <div>Matched courses:</div>
 
-                    { this.props.search.matchedOrgs.slice(0, this.state.maxItems).map(org => <div className="margin-top">
+                    { this.state.search.matchedCourses.slice(0, this.state.maxItems).map(course =>
+                        <div className="margin-top">
                             <RaisedButton
-                                onClick={ () => this.showOrg(org) }
-                                label={ org.title }
+                                onClick={ () => this.showCourse(course) }
+                                label={ course.title }
                             />
-                        </div>)
-                    }
+                        </div>
+                    ) }
                 </CardText>
 
                 { this.props.showLink == false ? '' :
@@ -68,7 +71,8 @@ export default React.createClass({
                             labelPosition="before"
                             backgroundColor="#a4c639"
                         />
-                    </CardActions> }
+                    </CardActions>
+                }
             </Card>
         );
     }

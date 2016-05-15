@@ -9,9 +9,13 @@ export default React.createClass({
     propTypes: {},
 
     getInitialState: function () {
+        var search = Stub.searches.filter(search => this.props.params.id == search.id)[0];
+        var answers = search.answers.map(a => Object.assign(a, { question: Stub.question.filter(q => q.id == a.question) }));
+
         return {
             // hardcode here
-            search: Stub.searches.filter(search => this.props.params.id == search.id)[0]
+            search: search,
+            questions: answers
         };
     },
 
@@ -21,7 +25,7 @@ export default React.createClass({
                 <div className="col fill-parent">
                     <MatchedOrgs title={ 'Completed on ' + this.state.search.createdAt } search={ this.state.search } expanded={ true } showLink={ false } />
 
-                    { this.state.search.answers.map(answer => <Question {...answer.question} answer={answer.answer} />) }
+                    { this.state.answers.map(answer => <Question {...answer.question} answer={answer.answer} />) }
                 </div>
             </div>
         );

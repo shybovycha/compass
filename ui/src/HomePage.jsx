@@ -19,13 +19,15 @@ export default React.createClass({
 
     render: function () {
         return (
-            <Card>
+            <Card className="welcome-card">
                 <CardText>
-                    This application will guide you through a hard path of
-                    choosing your profession in a smooth and easy way: you
-                    will be asked simple questions of one- or multiple choice.
-                    And then, the system will match the best universities,
-                    courses or schools for you.
+                    <div className="text">
+                        This application will guide you through a hard path of
+                        choosing your profession in a smooth and easy way: you
+                        will be asked simple questions of one- or multiple choice.
+                        And then, the system will match the best universities,
+                        courses or schools for you.
+                    </div>
                 </CardText>
 
                 <CardActions>

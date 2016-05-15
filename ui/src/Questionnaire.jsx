@@ -3,6 +3,8 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import MatchedOrgs from './MatchedOrgs';
+import MatchedCourses from './MatchedCourses';
+
 import Question from './Question';
 import Icon from './Icon';
 
@@ -42,7 +44,7 @@ export default React.createClass({
         return (
             <div className="questionnaire container col">
                 <div className="col fill-parent">
-                    { this.state.matchedOrgs > 0 ? <MatchedOrgs title="Matched so far" search={ this.getSearch() } /> : '' }
+                    { this.state.matchedOrgs > 0 ? <MatchedCourses title="Matched so far" search={ this.getSearch() } /> : '' }
 
                     <Question {...this.getQuestion()} />
                 </div>

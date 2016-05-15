@@ -12,6 +12,7 @@ import SearchDashboard from './SearchDashboard';
 import Search from './Search';
 import AccountPage from './AccountPage';
 import OrganizationPage from './OrganizationPage';
+import CoursePage from './CoursePage';
 
 import SidebarMenu from './SidebarMenu';
 
@@ -38,6 +39,7 @@ const App = React.createClass({
                             <Route path="/searches" component={ SearchDashboard }/>
                             <Route path="/search/:id" component={ Search }/>
                             <Route path="/org/:id" component={ OrganizationPage }/>
+                            <Route path="/course/:id" component={ CoursePage }/>
                         </Router>
                     </div>
                 </div>

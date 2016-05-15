@@ -13,45 +13,41 @@ export default React.createClass({
     propTypes: {},
 
     getInitialState: function () {
-        var org = Stub.organizations.filter(o => o.id == this.props.params.id)[0];
-        var courses = Stub.courses.filter(c => org.courses.indexOf(c.id) > -1);
+        var course = Stub.courses.filter(c => c.id == this.props.params.id)[0];
+        var orgs = Stub.organizations.filter(o => o.courses.indexOf(course.id) > -1);
 
         return {
             // hardcode here
-            org: org,
-            courses: courses
+            course: course,
+            orgs: orgs
         };
     },
 
-    openOrgWebsite: function () {
-        window.location.href = this.state.org.url;
-    },
-
-    showCourse: function (course) {
-        hashHistory.push('/course/' + course.id);
+    showOrg: function (org) {
+        hashHistory.push('/org/' + org.id);
     },
 
     render: function () {
         return (
             <div className="container">
                 <Card className="organization">
-                    <CardTitle title={ this.state.org.title } />
+                    <CardTitle title={ this.state.course.title } />
 
                     <CardText>
                         <div>
-                            { this.state.org.description }
+                            { this.state.course.description }
                         </div>
 
-                        <h3>Courses offered:</h3>
-
                         <div>
-                            { this.state.courses.map(c =>
+                            <h3>Universities, offering this course:</h3>
+
+                            { this.state.orgs.map(o =>
                                 <div className="margin-top">
                                     <RaisedButton
-                                        onClick={ () => this.showCourse(c) }
-                                        label={ c.title }
+                                        onClick={ () => this.showOrg(o) }
+                                        label={ o.title }
                                         labelPosition="before"
-                                        icon={ <Icon name="info" /> }
+                                        icon={ <Icon name="public" /> }
                                         primary={ true }
                                     />
                                 </div>
