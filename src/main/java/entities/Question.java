@@ -23,12 +23,13 @@ public class Question {
     private String imageUrl;
     private Style style;
 
-    public enum Style { SINGLE_CHOICE, MULTIPLE_CHOICE, RANKING }
+    public enum Style { SINGLE_CHOICE, MULTIPLE_CHOICE, RANKING, RANGING }
 
     public Question() {}
 
-    public Question(String title) {
+    public Question(String title, Style style) {
         this.title = title;
+        this.style = style;
     }
 
     @Override

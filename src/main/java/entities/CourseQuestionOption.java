@@ -6,23 +6,23 @@ import javax.persistence.*;
  * Created by shybovycha on 12/05/16.
  */
 @Entity
-public class OrgQuestionOption {
+public class CourseQuestionOption {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @OneToOne
-    private OrgQuestion orgQuestion;
+    private CourseQuestion courseQuestion;
 
     @OneToOne
     private QuestionOption questionOption;
 
     private int weight;
 
-    public OrgQuestionOption() {}
+    public CourseQuestionOption() {}
 
-    public OrgQuestionOption(OrgQuestion orgQuestion, QuestionOption opt, int weight) {
-        this.orgQuestion = orgQuestion;
+    public CourseQuestionOption(CourseQuestion courseQuestion, QuestionOption opt, int weight) {
+        this.courseQuestion = courseQuestion;
         this.questionOption = opt;
         this.weight = weight;
     }
@@ -35,12 +35,12 @@ public class OrgQuestionOption {
         this.id = id;
     }
 
-    public OrgQuestion getOrgQuestion() {
-        return orgQuestion;
+    public CourseQuestion getCourseQuestion() {
+        return courseQuestion;
     }
 
-    public void setOrgQuestion(OrgQuestion orgQuestion) {
-        this.orgQuestion = orgQuestion;
+    public void setCourseQuestion(CourseQuestion courseQuestion) {
+        this.courseQuestion = courseQuestion;
     }
 
     public QuestionOption getQuestionOption() {

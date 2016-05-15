@@ -1,9 +1,7 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by shybovycha on 12/05/16.
@@ -16,7 +14,14 @@ public class Org {
 
     private String name;
 
-    public Org() {}
+    @ManyToMany(targetEntity = Course.class)
+    @JoinTable(name = "org_courses",
+            joinColumns = @JoinColumn(name = "org_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+    private List<Course> courses;
+
+    public Org() {
+    }
 
     public Org(String name) {
         this.name = name;
@@ -36,5 +41,13 @@ public class Org {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }

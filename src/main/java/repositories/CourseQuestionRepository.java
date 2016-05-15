@@ -1,10 +1,10 @@
 package repositories;
 
-import entities.OrgQuestionOption;
+import entities.CourseQuestion;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  * Created by shybovycha on 13/05/16.
  */
-public interface OrgOptionRepository extends CrudRepository<OrgQuestionOption, Long> {
+public interface CourseQuestionRepository extends CrudRepository<CourseQuestion, Long> {
 }

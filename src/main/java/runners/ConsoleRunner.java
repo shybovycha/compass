@@ -1,8 +1,8 @@
 package runners;
 
 import entities.*;
-import matcher.OrgMatcher;
-import matcher.RankedOrgMatch;
+import matcher.CourseMatcher;
+import matcher.RankedCourseMatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -39,15 +39,25 @@ public class ConsoleRunner {
                                     UserRepository userRepository,
                                     OptionRepository optionRepository,
                                     OrgRepository orgRepository,
-                                    OrgQuestionRepository orgQuestionRepository,
-                                    OrgOptionRepository orgOptionRepository,
+                                    CourseQuestionRepository courseQuestionRepository,
+                                    CourseOptionRepository courseOptionRepository,
                                     SearchRepository searchRepository,
-                                    OrgMatcher orgMatcher) {
+                                    CourseRepository courseRepository,
+                                    CourseMatcher courseMatcher) {
         return (args) -> {
-            Question q1 = new Question("Do you like corporate environment?");
+            // Create courses
+            Course c1 = new Course("Software Engineering");
+            Course c2 = new Course("Computer Science");
+            Course c3 = new Course("Bioinformatics");
+
+            courseRepository.save(Arrays.asList(c1, c2, c3));
+
+            // Create questions...
+            Question q1 = new Question("How curious are you about what are living beings inside?", Question.Style.RANKING);
 
             questionRepository.save(q1);
 
+            // ...and their options
             QuestionOption q1opt1 = new QuestionOption(q1, "1");
             QuestionOption q1opt2 = new QuestionOption(q1, "2");
             QuestionOption q1opt3 = new QuestionOption(q1, "3");
@@ -62,131 +72,206 @@ public class ConsoleRunner {
                     q1opt5
             ));
 
-            Question q2 = new Question("Which technologies do you know?");
+            Question q2 = new Question("Are you about to discover something inexistent or create something in a totally awesome way?", Question.Style.RANGING);
 
             questionRepository.save(q2);
 
-            QuestionOption q2opt1 = new QuestionOption(q2, "Java EE");
-            QuestionOption q2opt2 = new QuestionOption(q2, "MySQL");
-            QuestionOption q2opt3 = new QuestionOption(q2, "Oracle");
-            QuestionOption q2opt4 = new QuestionOption(q2, "Ruby On Rails");
-            QuestionOption q2opt5 = new QuestionOption(q2, "Angular");
-            QuestionOption q2opt6 = new QuestionOption(q2, "Spring");
-            QuestionOption q2opt7 = new QuestionOption(q2, "Git");
+            QuestionOption q2opt1 = new QuestionOption(q2, "Only discovery!");
+            QuestionOption q2opt2 = new QuestionOption(q2, "Discovery is nice, but I want to create too...");
+            QuestionOption q2opt3 = new QuestionOption(q2, "Creating stuff is my passion!");
 
             optionRepository.save(Arrays.asList(
                 q2opt1,
                 q2opt2,
-                q2opt3,
-                q2opt4,
-                q2opt5,
-                q2opt6,
-                q2opt7
+                q2opt3
             ));
 
-            Question q3 = new Question("How many years of experience have you got?");
+            Question q3 = new Question("What activities would you like to do the most (on a daily basis)?", Question.Style.MULTIPLE_CHOICE);
 
             questionRepository.save(q3);
 
-            QuestionOption q3opt1 = new QuestionOption(q3, "0..2");
-            QuestionOption q3opt2 = new QuestionOption(q3, "2..4");
-            QuestionOption q3opt3 = new QuestionOption(q3, "4..6");
+            QuestionOption q3opt1 = new QuestionOption(q3, "Making theory to play nice in practice");
+            QuestionOption q3opt2 = new QuestionOption(q3, "Develop new ways of doing something");
+            QuestionOption q3opt3 = new QuestionOption(q3, "Create new tools and things");
+            QuestionOption q3opt4 = new QuestionOption(q3, "Working in a team of experienced seniors");
+            QuestionOption q3opt5 = new QuestionOption(q3, "Working in an enthusiastic team of same-agers");
 
             optionRepository.save(Arrays.asList(
                     q3opt1,
                     q3opt2,
-                    q3opt3
+                    q3opt3,
+                    q3opt4,
+                    q3opt5
             ));
 
-            Org o1 = new Org("EPAM");
+            // Set the weights, linking questions/options to courses
+            // course #1 questions
+            CourseQuestion c1q1 = new CourseQuestion(c1, q1);
+            CourseQuestion c1q2 = new CourseQuestion(c1, q2);
+            CourseQuestion c1q3 = new CourseQuestion(c1, q3);
+
+            courseQuestionRepository.save(c1q1);
+            courseQuestionRepository.save(c1q2);
+            courseQuestionRepository.save(c1q3);
+
+            c1.setCourseQuestions(Arrays.asList(c1q1, c1q2, c1q3));
+            courseRepository.save(c1);
+
+            // course #1, question #1
+            c1q1.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c1q1, q1opt1, 1),
+                    new CourseQuestionOption(c1q1, q1opt2, 1),
+                    new CourseQuestionOption(c1q1, q1opt3, 1),
+                    new CourseQuestionOption(c1q1, q1opt4, 1),
+                    new CourseQuestionOption(c1q1, q1opt5, 1)
+            ));
+
+            courseOptionRepository.save(c1q1.getCourseQuestionOptions());
+            courseQuestionRepository.save(c1q1);
+
+            // course #1, question #2
+            c1q2.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c1q2, q2opt1, 3),
+                    new CourseQuestionOption(c1q2, q2opt2, 4),
+                    new CourseQuestionOption(c1q2, q2opt3, 5)
+            ));
+
+            courseOptionRepository.save(c1q2.getCourseQuestionOptions());
+            courseQuestionRepository.save(c1q2);
+
+            // course #1, question #3
+            c1q3.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c1q3, q3opt1, 5),
+                    new CourseQuestionOption(c1q3, q3opt2, 3),
+                    new CourseQuestionOption(c1q3, q3opt3, 5),
+                    new CourseQuestionOption(c1q3, q3opt4, 4),
+                    new CourseQuestionOption(c1q3, q3opt5, 5)
+            ));
+
+            courseOptionRepository.save(c1q3.getCourseQuestionOptions());
+            courseQuestionRepository.save(c1q3);
+
+            // course #2 questions
+            CourseQuestion c2q1 = new CourseQuestion(c2, q1);
+            CourseQuestion c2q2 = new CourseQuestion(c2, q2);
+            CourseQuestion c2q3 = new CourseQuestion(c2, q3);
+
+            courseQuestionRepository.save(c2q1);
+            courseQuestionRepository.save(c2q2);
+            courseQuestionRepository.save(c2q3);
+
+            c2.setCourseQuestions(Arrays.asList(c2q1, c2q2, c2q3));
+            courseRepository.save(c2);
+
+            // course #2, question #1
+            c2q1.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c2q1, q1opt1, 1),
+                    new CourseQuestionOption(c2q1, q1opt2, 1),
+                    new CourseQuestionOption(c2q1, q1opt3, 1),
+                    new CourseQuestionOption(c2q1, q1opt4, 1),
+                    new CourseQuestionOption(c2q1, q1opt5, 1)
+            ));
+
+            courseOptionRepository.save(c2q1.getCourseQuestionOptions());
+            courseQuestionRepository.save(c2q1);
+
+            // course #2, question #2
+            c2q2.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c2q2, q2opt1, 5),
+                    new CourseQuestionOption(c2q2, q2opt2, 4),
+                    new CourseQuestionOption(c2q2, q2opt3, 3)
+            ));
+
+            courseOptionRepository.save(c2q2.getCourseQuestionOptions());
+            courseQuestionRepository.save(c2q2);
+
+            // course #2, question #3
+            c2q3.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c2q3, q3opt1, 5),
+                    new CourseQuestionOption(c2q3, q3opt2, 5),
+                    new CourseQuestionOption(c2q3, q3opt3, 3),
+                    new CourseQuestionOption(c2q3, q3opt4, 5),
+                    new CourseQuestionOption(c2q3, q3opt5, 3)
+            ));
+
+            courseOptionRepository.save(c2q3.getCourseQuestionOptions());
+            courseQuestionRepository.save(c2q3);
+
+            // course #1 questions
+            CourseQuestion c3q1 = new CourseQuestion(c3, q1);
+            CourseQuestion c3q2 = new CourseQuestion(c3, q2);
+            CourseQuestion c3q3 = new CourseQuestion(c3, q3);
+
+            courseQuestionRepository.save(c3q1);
+            courseQuestionRepository.save(c3q2);
+            courseQuestionRepository.save(c3q3);
+
+            c3.setCourseQuestions(Arrays.asList(c3q1, c3q2, c3q3));
+            courseRepository.save(c3);
+
+            // course #3, question #1
+            c3q1.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c3q1, q1opt1, 1),
+                    new CourseQuestionOption(c3q1, q1opt2, 2),
+                    new CourseQuestionOption(c3q1, q1opt3, 3),
+                    new CourseQuestionOption(c3q1, q1opt4, 4),
+                    new CourseQuestionOption(c3q1, q1opt5, 5)
+            ));
+
+            courseOptionRepository.save(c3q1.getCourseQuestionOptions());
+            courseQuestionRepository.save(c3q1);
+
+            // course #3, question #2
+            c3q2.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c3q2, q2opt1, 5),
+                    new CourseQuestionOption(c3q2, q2opt2, 3),
+                    new CourseQuestionOption(c3q2, q2opt3, 5)
+            ));
+
+            courseOptionRepository.save(c3q2.getCourseQuestionOptions());
+            courseQuestionRepository.save(c3q2);
+
+            // course #3, question #3
+            c3q3.setCourseQuestionOptions(Arrays.asList(
+                    new CourseQuestionOption(c3q3, q3opt1, 3),
+                    new CourseQuestionOption(c3q3, q3opt2, 5),
+                    new CourseQuestionOption(c3q3, q3opt3, 5),
+                    new CourseQuestionOption(c3q3, q3opt4, 5),
+                    new CourseQuestionOption(c3q3, q3opt5, 3)
+            ));
+
+            courseOptionRepository.save(c3q3.getCourseQuestionOptions());
+            courseQuestionRepository.save(c3q3);
+
+
+            // Create organizations and link them to courses
+            Org o1 = new Org("Uniwersytet Jagielloński");
+
+            o1.setCourses(Arrays.asList(c1, c2, c3));
 
             orgRepository.save(o1);
 
-            OrgQuestion o1q1 = new OrgQuestion(o1, q1);
-            OrgQuestion o1q2 = new OrgQuestion(o1, q2);
-            OrgQuestion o1q3 = new OrgQuestion(o1, q3);
+            Org o2 = new Org("Akademia Górniczo-Hutnicza");
 
-            orgQuestionRepository.save(o1q1);
-            orgQuestionRepository.save(o1q2);
-            orgQuestionRepository.save(o1q3);
-
-            o1q1.setOrgQuestionOptions(Arrays.asList(
-                    new OrgQuestionOption(o1q1, q1opt1, 1),
-                    new OrgQuestionOption(o1q1, q1opt2, 2),
-                    new OrgQuestionOption(o1q1, q1opt3, 3),
-                    new OrgQuestionOption(o1q1, q1opt4, 4),
-                    new OrgQuestionOption(o1q1, q1opt5, 5)
-            ));
-
-            orgOptionRepository.save(o1q1.getOrgQuestionOptions());
-            orgQuestionRepository.save(o1q1);
-
-            o1q2.setOrgQuestionOptions(Arrays.asList(
-                    new OrgQuestionOption(o1q2, q1opt1, 5),
-                    new OrgQuestionOption(o1q2, q1opt2, 1),
-                    new OrgQuestionOption(o1q2, q1opt3, 5),
-                    new OrgQuestionOption(o1q2, q1opt4, 1),
-                    new OrgQuestionOption(o1q2, q1opt5, 2),
-                    new OrgQuestionOption(o1q2, q1opt5, 5),
-                    new OrgQuestionOption(o1q2, q1opt5, 4)
-            ));
-
-            orgOptionRepository.save(o1q2.getOrgQuestionOptions());
-            orgQuestionRepository.save(o1q2);
-
-            o1q3.setOrgQuestionOptions(Arrays.asList(
-                    new OrgQuestionOption(o1q3, q1opt1, 1),
-                    new OrgQuestionOption(o1q3, q1opt2, 3),
-                    new OrgQuestionOption(o1q3, q1opt3, 5)
-            ));
-
-            orgOptionRepository.save(o1q3.getOrgQuestionOptions());
-            orgQuestionRepository.save(o1q3);
-
-            Org o2 = new Org("u2i");
+            o2.setCourses(Arrays.asList(c1, c2, c3));
 
             orgRepository.save(o2);
 
-            OrgQuestion o2q1 = new OrgQuestion(o2, q1);
-            OrgQuestion o2q2 = new OrgQuestion(o2, q2);
-            OrgQuestion o2q3 = new OrgQuestion(o2, q3);
+            Org o3 = new Org("Politechnika Wrocławska");
 
-            orgQuestionRepository.save(o2q1);
-            orgQuestionRepository.save(o2q2);
-            orgQuestionRepository.save(o2q3);
+            o3.setCourses(Arrays.asList(c1, c2));
 
-            o2q1.setOrgQuestionOptions(Arrays.asList(
-                    new OrgQuestionOption(o2q1, q1opt1, 5),
-                    new OrgQuestionOption(o2q1, q1opt2, 5),
-                    new OrgQuestionOption(o2q1, q1opt3, 3),
-                    new OrgQuestionOption(o2q1, q1opt4, 2),
-                    new OrgQuestionOption(o2q1, q1opt5, 1)
-            ));
+            orgRepository.save(o3);
 
-            orgOptionRepository.save(o2q1.getOrgQuestionOptions());
-            orgQuestionRepository.save(o2q1);
+            Org o4 = new Org("Wyższa Szkoła Informatyczna");
 
-            o2q2.setOrgQuestionOptions(Arrays.asList(
-                    new OrgQuestionOption(o2q2, q1opt1, 1),
-                    new OrgQuestionOption(o2q2, q1opt2, 5),
-                    new OrgQuestionOption(o2q2, q1opt3, 3),
-                    new OrgQuestionOption(o2q2, q1opt4, 5),
-                    new OrgQuestionOption(o2q2, q1opt5, 5),
-                    new OrgQuestionOption(o2q2, q1opt5, 3),
-                    new OrgQuestionOption(o2q2, q1opt5, 5)
-            ));
+            o4.setCourses(Arrays.asList(c1));
 
-            orgOptionRepository.save(o2q2.getOrgQuestionOptions());
-            orgQuestionRepository.save(o2q2);
+            orgRepository.save(o4);
 
-            o2q3.setOrgQuestionOptions(Arrays.asList(
-                    new OrgQuestionOption(o2q3, q1opt1, 2),
-                    new OrgQuestionOption(o2q3, q1opt2, 5),
-                    new OrgQuestionOption(o2q3, q1opt3, 5)
-            ));
+            // Create a couple of users
 
-            orgOptionRepository.save(o2q3.getOrgQuestionOptions());
-
+            // user, who likes to create and is rather interested in biology
             User u1 = new User("user #1", "u1@email.com");
 
             userRepository.save(u1);
@@ -196,13 +281,15 @@ public class ConsoleRunner {
             searchRepository.save(u1s1);
 
             u1s1.setAnswers(Arrays.asList(
-                    new Answer(u1s1, q1, Arrays.asList(q1opt3)),
-                    new Answer(u1s1, q2, Arrays.asList(q2opt1, q2opt2, q2opt6, q2opt7)),
-                    new Answer(u1s1, q3, Arrays.asList(q3opt2))
+                    new Answer(u1s1, q1, Arrays.asList(q1opt4)),
+                    new Answer(u1s1, q2, Arrays.asList(q2opt2)),
+                    new Answer(u1s1, q3, Arrays.asList(q3opt2, q3opt3, q3opt4))
             ));
 
             answerRepository.save(u1s1.getAnswers());
+            searchRepository.save(u1s1);
 
+            // user, which is math-oriented genius
             User u2 = new User("user #2", "u2@email.com");
 
             userRepository.save(u2);
@@ -212,13 +299,15 @@ public class ConsoleRunner {
             searchRepository.save(u2s1);
 
             u2s1.setAnswers(Arrays.asList(
-                    new Answer(u2s1, q1, Arrays.asList(q1opt4)),
-                    new Answer(u2s1, q2, Arrays.asList(q2opt1, q2opt2, q2opt3, q2opt6)),
-                    new Answer(u2s1, q3, Arrays.asList(q3opt3))
+                    new Answer(u2s1, q1, Arrays.asList(q1opt1)),
+                    new Answer(u2s1, q2, Arrays.asList(q2opt1)),
+                    new Answer(u2s1, q3, Arrays.asList(q3opt1, q3opt2, q3opt4))
             ));
 
             answerRepository.save(u2s1.getAnswers());
+            searchRepository.save(u2s1);
 
+            // mid-player
             User u3 = new User("user #3", "u3@email.com");
 
             userRepository.save(u3);
@@ -229,20 +318,21 @@ public class ConsoleRunner {
 
             u3s1.setAnswers(Arrays.asList(
                     new Answer(u3s1, q1, Arrays.asList(q1opt3)),
-                    new Answer(u3s1, q2, Arrays.asList(q2opt5, q2opt7)),
-                    new Answer(u3s1, q3, Arrays.asList(q3opt2))
+                    new Answer(u3s1, q2, Arrays.asList(q2opt2)),
+                    new Answer(u3s1, q3, Arrays.asList(q3opt1, q3opt4, q3opt5))
             ));
 
             answerRepository.save(u3s1.getAnswers());
+            searchRepository.save(u3s1);
 
             // and the actual check
-            List<RankedOrgMatch> u1matches = orgMatcher.match(u1s1);
+            List<RankedCourseMatch> u1matches = courseMatcher.match(u1s1);
             logger.info(String.format("User1 matches are: %s\n", u1matches));
 
-            List<RankedOrgMatch> u2matches = orgMatcher.match(u2s1);
+            List<RankedCourseMatch> u2matches = courseMatcher.match(u2s1);
             logger.info(String.format("User2 matches are: %s\n", u2matches));
 
-            List<RankedOrgMatch> u3matches = orgMatcher.match(u3s1);
+            List<RankedCourseMatch> u3matches = courseMatcher.match(u3s1);
             logger.info(String.format("User3 matches are: %s\n", u3matches));
         };
     }
