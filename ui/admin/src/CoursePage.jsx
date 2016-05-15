@@ -34,19 +34,23 @@ export default React.createClass({
     render: function () {
         return (
             <EditEntity title="course" entity={ this.state.entity } onSave={ this.saveEntity }>
-                <TextField
-                    floatingLabelText="Title"
-                    defaultValue={ this.state.course.title }
-                    onChange={ this.updateEntity('title') }
-                />
+                <div>
+                    <TextField
+                        floatingLabelText="Title"
+                        defaultValue={ this.state.entity.title }
+                        onChange={ this.updateEntity('title') }
+                    />
+                </div>
 
-                <TextField
-                    floatingLabelText="Description"
-                    defaultValue={ this.state.course.description }
-                    onChange={ this.updateEntity('description') }
-                    multiLine={ true }
-                    rows={ 5 }
-                />
+                <div>
+                    <TextField
+                        floatingLabelText="Description"
+                        defaultValue={ this.state.entity.description }
+                        onChange={ this.updateEntity('description') }
+                        multiLine={ true }
+                        rows={ 5 }
+                    />
+                </div>
             </EditEntity>
         );
     }

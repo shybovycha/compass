@@ -13,6 +13,10 @@ export default React.createClass({
         return {};
     },
 
+    showOrganizationList: function () {
+        hashHistory.push('/orgs');
+    },
+
     render: function () {
         return (
             <div>
@@ -26,6 +30,10 @@ export default React.createClass({
                             Try opening sidebar menu and create your first organization.
                         </div>
                     </CardText>
+
+                    <CardActions>
+                        <RaisedButton label="List organizations" primary={ true } onClick={ this.showOrganizationList } />
+                    </CardActions>
                 </Card>
             </div>
         );

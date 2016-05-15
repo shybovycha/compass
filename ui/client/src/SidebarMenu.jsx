@@ -4,8 +4,8 @@ import { Router, Route, Link, hashHistory } from 'react-router';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
-
-import DrawerMenu from './DrawerMenu';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
 
 import Icon from './Icon';
 

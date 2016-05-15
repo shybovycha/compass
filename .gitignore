@@ -6,3 +6,5 @@ src/main/ui/dst
 node_modules
 ui/build/
 .DS_Store
+ui/client/build
+ui/admin/build
