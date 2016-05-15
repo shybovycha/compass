@@ -6,7 +6,6 @@ import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
 
 import DrawerMenu from './DrawerMenu';
-import NavBar from './NavBar';
 
 import Icon from './Icon';
 
@@ -36,7 +35,13 @@ export default React.createClass({
     render: function () {
         return (
             <div>
-                <NavBar title={ this.props.title } onClick={ this.toggleDrawerMenu } />
+                <AppBar
+                    title={ this.props.title }
+                    iconElementLeft={
+                        <IconButton onClick={ this.toggleDrawerMenu }>
+                            <Icon light={ true } name="menu" />
+                        </IconButton>
+                    } />
 
                 <Drawer open={ this.state.showDrawer } docked={ false } onRequestChange={ this.toggleDrawerMenu } className="sidebar">
                     <MenuItem>

@@ -3,8 +3,6 @@ var source = require('vinyl-source-stream'); // Used to stream bundle for furthe
 var browserify = require('browserify');
 var gutil = require('gulp-util');
 var watchify = require('watchify');
-//var reactify = require('reactify');
-//var concat = require('gulp-concat');
 
 var browserifyOptions = Object.assign(watchify.args, {
     entries: './src/App.jsx',
@@ -14,7 +12,7 @@ var browserifyOptions = Object.assign(watchify.args, {
 
 function bundle(bundler) {
     return function () {
-        console.log('Rebuilding...');
+        console.log('Building...');
 
         return bundler
             .transform("babelify", { presets: ["es2015", "react"] })
@@ -27,6 +25,7 @@ function bundle(bundler) {
 
 watcher = watchify(browserify(browserifyOptions));
 
-watcher.on('update', bundle(watcher))
+watcher.on('update', bundle(watcher));
 
-gulp.task('default', bundle(watcher));
+gulp.task('watch', bundle(watcher));
+gulp.task('default', bundle(browserify(browserifyOptions)));
