@@ -35,16 +35,11 @@ public class CourseMatcher {
 
         return StreamSupport.stream(courseRepository.findAll().spliterator(), false)
                 .map(course -> {
-                    List<CourseQuestion> csqs1 = course.getCourseQuestions()
+                    Integer weight = course.getCourseQuestions()
                             .stream()
                             .filter(cq -> answeredQuestions.stream().anyMatch(aq -> aq.getId() == cq.getQuestion().getId()))
-                            .collect(Collectors.toList());
-
-                    Map<CourseQuestion, Answer> courseQuestionWithAnswers = csqs1
-                            .stream()
-                            .collect(Collectors.toMap(Function.identity(), q -> search.getAnswers().stream().filter(a -> a.getQuestion().getId() == q.getQuestion().getId()).findFirst().get()));
-
-                    Integer weight = courseQuestionWithAnswers.entrySet()
+                            .collect(Collectors.toMap(Function.identity(), q -> search.getAnswers().stream().filter(a -> a.getQuestion().getId() == q.getQuestion().getId()).findFirst().get()))
+                            .entrySet()
                             .stream()
                             .map(pair -> pair.getKey().getCourseQuestionOptions()
                                     .stream()
