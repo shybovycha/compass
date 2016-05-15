@@ -26,8 +26,12 @@ export default React.createClass({
     },
 
     getInitialState: function () {
+        var search = this.props.search;
+        var courses = Stub.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);
+
         return {
-            search: this.props.search
+            search: search,
+            courses: courses
         };
     },
 
@@ -40,8 +44,6 @@ export default React.createClass({
     },
 
     render: function () {
-        this.state.search = Object.assign(this.state.search, { matchedCourses: Stub.courses.filter(c => this.state.search.matchedCourses.indexOf(c.id) > -1) });
-
         return (
             <Card className="question" initiallyExpanded={ this.props.expanded }>
                 { this.props.expanded ?
@@ -52,7 +54,7 @@ export default React.createClass({
                 <CardText expandable={ true }>
                     <div>Matched courses:</div>
 
-                    { this.state.search.matchedCourses.slice(0, this.state.maxItems).map(course =>
+                    { this.state.courses.slice(0, this.state.maxItems).map(course =>
                         <div className="margin-top">
                             <RaisedButton
                                 onClick={ () => this.showCourse(course) }

@@ -5,6 +5,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import RaisedButton from 'material-ui/RaisedButton';
 
 import Icon from './Icon';
+import Rating from './Rating';
 
 export default React.createClass({
     propTypes: {},

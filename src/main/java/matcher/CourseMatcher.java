@@ -1,17 +1,16 @@
 package matcher;
 
-import entities.*;
+import entities.Answer;
+import entities.CourseQuestionOption;
+import entities.Question;
+import entities.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.CourseQuestionRepository;
 import repositories.CourseRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -20,9 +19,6 @@ import java.util.stream.StreamSupport;
  */
 @Service
 public class CourseMatcher {
-    @Autowired
-    private CourseQuestionRepository courseQuestionRepository;
-
     @Autowired
     private CourseRepository courseRepository;
 
@@ -50,10 +46,5 @@ public class CourseMatcher {
 
                     return new RankedCourseMatch(course, weight);
                 }).collect(Collectors.toList());
-    }
-
-    private static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
-        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
-        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
 }

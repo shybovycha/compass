@@ -107,3 +107,30 @@ body {
 .welcome-card .text {
     font-size: 16px;
 }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  content: "star_border";
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.rating > i {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > i:hover:before,
+.rating > i.selected:hover:before {
+    content: "star_half";
+    position: absolute;
+}
+
+.rating > i.selected:before,
+.rating > i.selected ~ i:before,
+.rating > i:hover ~ i:before {
+   content: "star";
+   position: absolute;
+}
