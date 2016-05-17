@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=500" />
+
+    <title>Compass</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="./css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/highlight.pack.js"></script>
+    <script type="text/javascript" src="./js/modernizr.custom.min.js"></script>
+    <script type="text/javascript" src="./js/ScrollMagic.js"></script>
+
+    <style>
+    /* ANIMATIONS */
+    /* pre-conditions */
+
+    @keyframes cloud-right-wrapper {
+        0% {
+            transform: translateX(110%);
+        }
+        100% {
+            transform: translateX(80%);
+        }
+    }
+
+    @keyframes cloud-right {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes cloud-left-wrapper {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(10%);
+        }
+    }
+
+    @keyframes cloud-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    @keyframes baloon-wrapper {
+        0% {
+            transform: translateY(100vh);
+        }
+        100% {
+            transform: translateY(10vh);
+        }
+    }
+
+    @keyframes baloon {
+        0% {
+            transform: translateX(10vw) translateY(0);
+            animation-timing-function: ease-in;
+        }
+        50% {
+            transform: translateX(15vw) translateY(-3vh);
+            animation-timing-function: ease-out;
+        }
+        100% {
+            transform: translateX(20vw) translateY(0);
+            animation-timing-function: ease-in;
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.25);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .baloon-wrapper {
+        transform: translateY(110%);
+    }
+
+    .baloon {
+        transform: translateX(10vw);
+    }
+
+    .cloud-left-wrapper {
+        transform: translateX(-50%)
+    }
+
+    .cloud-left {
+    }
+
+    .cloud-right-wrapper {
+        transform: translateX(150%);
+    }
+
+    /* flies from the left to its starting position */
+
+    .cloud-right {
+    }
+
+    .logo-wrapper {
+        margin-top: -15vh;
+    }
+
+    .logo {
+        max-width: 500px;
+    }
+
+    .logo-wrapper .logo {
+        margin-left: 25%;
+    }
+
+    .logo-wrapper .subtitle {
+        color: #fff;
+        font-size: 22px !important;
+        font-weight: 600;
+        font-style: italic;
+        text-align: center;
+        opacity: 0;
+    }
+
+    /* cloud-right-wrapper and cloud-right have same props, but from the right side to the left one; besides, right-cloud has shorter animation-duration */
+
+    body.animate .logo {
+        animation: logo 1s 1;
+        animation-fill-mode: forwards;
+    }
+    /* animations themselves */
+
+    body.animate .baloon-wrapper {
+        animation: baloon-wrapper 1s 1;
+        animation-fill-mode: forwards;
+    }
+
+    body.animate .baloon {
+        animation: baloon 7s infinite;
+        animation-delay: 1.15s;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+    }
+
+    body.animate .cloud-left-wrapper {
+        animation: cloud-left-wrapper 0.75s 1;
+        animation-fill-mode: forwards;
+    }
+
+    /* flies from the left to its starting position */
+
+    body.animate .cloud-left {
+        animation: cloud-left 30s infinite;
+        animation-delay: 1s;
+        animation-direction: alternate;
+    }
+
+    body.animate .cloud-right-wrapper {
+        animation: cloud-right-wrapper 0.75s 1;
+        animation-fill-mode: forwards;
+    }
+
+    /* flies from the left to its starting position */
+
+    body.animate .cloud-right {
+        animation: cloud-right 30s infinite;
+        animation-delay: 1s;
+        animation-direction: alternate;
+    }
+
+    body.animate .logo-wrapper .subtitle {
+        animation: reveal 2s 1;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+    }
+
+    body.animate #slide2 .col-6:nth-child(1) .wrapper {
+        animation: rotate 30s infinite;
+        animation-timing-function: linear;
+    }
+
+    body.animate #slide2 .subject {
+        animation: rotate 10s infinite;
+        animation-timing-function: linear;
+    }
+
+    /* END ANIMATIONS */
+
+    /* hacktilities */
+
+    .col-6 {
+        width: 49.5%;
+        display: inline-block;
+    }
+
+    .col-4 {
+        width: 33%;
+        display: inline-block;
+    }
+
+    .col-3 {
+        width: 24.5%;
+        display: inline-block;
+    }
+
+    .row {
+        display: block;
+        /*height: 100%;*/
+    }
+
+    /* slide #1 */
+
+    #slide1 .start-client {
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+        background-color: #dedede;
+        border: 2px solid #ccc;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 10px 20px;
+        color: #555;
+    }
+
+    #slide1 .start-client:hover {
+        background-color: #bbb;
+        color: #555;
+    }
+
+    #slide1 .start-client:visited,
+    #slide1 .start-client:hover {
+        text-decoration: none;
+        color: #555;
+    }
+
+    /* slide #2 */
+
+    #slide2 .row {
+        height: 100%;
+    }
+
+    #slide2 .title {
+        font-size: 36pt !important;
+        font-style: italic;
+    }
+
+    #slide2 .subtitle {
+        font-size: 18pt !important;
+        color: #fff;
+    }
+
+    #slide2 .subject {
+        max-width: 100px;
+    }
+
+    #slide2 {
+        display: table;
+    }
+
+    #slide2 .col-6 {
+        height: 100%;
+    }
+
+    #slide2 .col-6 .wrapper {
+        margin-top: 25vh;
+        margin-right: 10vw;
+    }
+
+    #slide2 .col-6:nth-child(1) {
+        text-align: center;
+    }
+
+    #slide2 .col-6:nth-child(2) {
+        text-align: right;
+    }
+
+    #slide2 .subject-1 {
+    }
+
+    #slide2 .subject-2 {
+        margin-top: -75px;
+    }
+
+    #slide2 .subject-3 {
+    }
+
+    #slide2 .subject-4 {
+    }
+
+    #slide2 .subject-5 {
+        margin-left: translateX(10px);
+    }
+
+    /* slide #3 */
+
+    section.panel {
+        width: 100% !important;
+    }
+
+    #slide3 {
+        padding: 10px 20px;
+    }
+
+    #slide3 .title-1 {
+        font-size: 26pt !important;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    #slide3 .title-2 {
+        text-align: center;
+        font-size: 18pt !important;
+        margin: 20px 0 30px 0;
+    }
+
+    #slide3 .col-4 {
+        text-align: center;
+    }
+
+    #slide3 .subtitle {
+        margin-top: 20px;
+        max-width: 80%;
+        display: inline-block;
+    }
+
+    #slide3 .subtitle .subtitle-1 {
+        font-size: 14px !important;
+        margin-top: 20px;
+        text-transform: uppercase;
+        font-family: "AvenirNextLTPro-Demi", Verdana, Arial, sans-serif;
+    }
+
+    #slide3 .subtitle .subtitle-2 {
+    }
+
+    #slide3 .image {
+        text-align: center;
+    }
+
+    /* slide #4 */
+
+    #slide4 .row {
+        height: 100%;
+    }
+
+    #slide4 .col-6 {
+        height: 100%;
+        vertical-align: top;
+    }
+
+    #slide4 .col-6:nth-child(1) {
+    }
+
+    #slide4 .banner {
+        display: inline-block;
+        margin-top: 25vh;
+    }
+
+    #slide4 .title {
+        padding-left: 20px;
+        font-size: 22pt !important;
+        font-weight: 700;
+        color: #fff;
+        margin-top: 50vh;
+        margin-left: 10vw;
+    }
+
+    /**/
+
+    section#slide1 {
+        background-color: rgb(168, 203, 213);
+    }
+
+    section#slide2 {
+        background-color: rgb(238, 126, 114);
+    }
+
+    section#slide3 {
+        background-color: rgb(243, 248, 249);
+    }
+
+    section#slide4 {
+        background-color: rgb(156, 145, 191);
+    }
+    /**/
+
+    .panel {
+        height: 100%;
+        width: 100%;
+    }
+
+    .panel.green {
+        margin-bottom: 400px
+    }
+
+    #section-slides,
+    #section-wipes {
+        height: 100%;
+        width: 100%;
+        background-image: none;
+    }
+
+    #content-wrapper,
+    #slides-wrapper {
+        height: 100%;
+    }
+
+    .blue {
+        background-color: #3883d8;
+    }
+
+    .turqoise {
+        background-color: #38ced7;
+    }
+
+    .brown {
+        background-color: #a66f28;
+    }
+
+    .bordeaux {
+        background-color: #953543;
+    }
+
+    .skin {
+        background-color: #ED9F4C;
+    }
+
+    .black {
+        background-color: #000000;
+    }
+
+    .white {
+        background-color: #FFFFFF;
+    }
+
+    .red {
+        background-color: #cf3535;
+    }
+
+    .green {
+        background-color: #22d659;
+    }
+
+    .orange {
+        background-color: #ea6300;
+    }
+    /**/
+
+    div#content-wrapper {
+        height: 100%;
+        width: 100%;
+        /*min-width: 900px;*/
+        min-height: 500px;
+    }
+
+    html.touch div#content-wrapper {
+        width: 100%;
+        /*min-width: 700px;*/
+    }
+
+    #slides-wrapper {
+        height: 100%;
+    }
+
+    #slides-wrapper.scrollContainer .scrollContent {
+        width: 100%;
+        height: auto;
+    }
+
+    #slides-wrapper.scrollContainer.horizontal .scrollContent {
+        width: auto;
+        height: 100%;
+    }
+
+    #slides-wrapper.horizontal {
+        white-space: nowrap;
+        font-size: 0;
+        /* fix for spaces between inline block divs */
+    }
+
+    #slides-wrapper.horizontal div {
+        font-size: 13px;
+    }
+
+    #slides-wrapper .scrollContent,
+    #slides-wrapper.horizontal .scrollContent {
+        font-size: 0;
+    }
+
+    #slides-wrapper .scrollContent div {
+        font-size: 13px;
+    }
+
+    #slides-wrapper section {}
+
+    #slides-wrapper .scrollContent {
+        height: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="content-wrapper">
+        <div id="slides-wrapper">
+            <div class="scrollContent">
+                <section id="section-wipes">
+                    <section class="panel" id="slide1">
+                        <a class="start-client" href="/client/">Student start</a>
+
+                        <div class="baloon-wrapper">
+                            <img src="./img/balloon.png" alt="" class="baloon">
+                        </div>
+
+                        <div class="cloud-left-wrapper">
+                            <img src="./img/cloud1.png" alt="" class="cloud-left">
+                        </div>
+
+                        <div class="cloud-right-wrapper">
+                            <img src="./img/cloud2.png" alt="" class="cloud-right">
+                        </div>
+
+                        <div class="logo-wrapper">
+                            <img src="./img/logo.png" alt="" class="logo">
+                            <div class="subtitle">Take the quiz and find out which course might be best for you!</div>
+                        </div>
+                    </section>
+
+                    <section class="panel" id="slide2">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="wrapper">
+                                    <div class="row">
+                                        <img src="./img/ball.png" alt="" class="subject subject-1">
+                                        <img src="./img/book.png" alt="" class="subject subject-2">
+                                    </div>
+                                    <div class="row">
+                                        <img src="./img/chemia.png" alt="" class="subject subject-3">
+                                        <img src="./img/mouse.png" alt="" class="subject subject-4">
+                                        <img src="./img/rocket.png" alt="" class="subject subject-5">
+                                    </div>
+                                    <div class="row">
+                                        <img src="./img/draw.png" alt="" class="subject subject-1">
+                                        <img src="./img/vegetables.png" alt="" class="subject subject-2">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="wrapper">
+                                    <div class="row title">
+                                        Not sure what to study?
+                                    </div>
+
+                                    <div class="row subtitle">
+                                        Is your favorite subject economics or maths? Or maybe you are into the arts?
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel" id="slide3">
+                        <div class="row">
+                            <div class="title-1">
+                                <em>Compass</em> features
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="title-2">Student</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="image">
+                                    <img src="./img/circle-user.png" alt="">
+                                </div>
+
+                                <div class="subtitle">
+                                    <div class="subtitle-1">Answer a few questions</div>
+                                    <div class="subtitle-2">Our career specialists created a sophisticated questionnaire to help you choose your major.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="image">
+                                    <img src="./img/circle-dream.png" alt="">
+                                </div>
+
+                                <div class="subtitle">
+                                    <div class="subtitle-1">Get personalized results</div>
+                                    <div class="subtitle-2">See which major is a good fit for YOU, not a group of people who like Math.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="image">
+                                    <img src="./img/circle-step.png" alt="">
+                                </div>
+
+                                <div class="subtitle">
+                                    <div class="subtitle-1">Share</div>
+                                    <div class="subtitle-2">Found your match? Spread the word and help your friends find theirs!</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="title-2">University</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="image">
+                                    <img src="./img/circle-magazine.png" alt="">
+                                </div>
+
+                                <div class="subtitle">
+                                    <div class="subtitle-1">Advertise wisely</div>
+                                    <div class="subtitle-2">Reach out directly to your target. Newspaper ads will not do the job.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="image">
+                                    <img src="./img/circle-community.png" alt="">
+                                </div>
+
+                                <div class="subtitle">
+                                    <div class="subtitle-1">Find the best and brightest</div>
+                                    <div class="subtitle-2">Make sure you recruit students that will thrive in your institution.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="image">
+                                    <img src="./img/circle-friend.png" alt="">
+                                </div>
+
+                                <div class="subtitle">
+                                    <div class="subtitle-1">Get professional assistance</div>
+                                    <div class="subtitle-2">You do not need to create questionnaires. We will do that for you - let's have a chat!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel" id="slide4">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="title">Start using our app right now!</div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="banner">
+                                    <a href="/client/"><img src="./img/different-devices.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() { // wait for document ready
+        // init
+        var controller = new ScrollMagic.Controller({
+            globalSceneOptions: {
+                triggerHook: 'onLeave'
+            }
+        });
+
+        // get all slides
+        var slides = document.querySelectorAll("section.panel");
+
+        // create scene for every slide
+        for (var i = 0; i < slides.length; i++) {
+            new ScrollMagic.Scene({
+                    triggerElement: slides[i]
+                })
+                .setPin(slides[i])
+                // .addIndicators() // add indicators (requires plugin)
+                .addTo(controller);
+        }
+
+        $('body').addClass('animate');
+    });
+    </script>
+</body>
+
+</html>
