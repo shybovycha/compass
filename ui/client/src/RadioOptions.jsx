@@ -14,7 +14,7 @@ export default React.createClass({
             <RadioButtonGroup defaultSelected={ this.props.checked[0] }>
                 { this.props.options.map(option =>
                     <RadioButton
-                        value={ option.optionId }
+                        value={ option.id }
                         label={ option.value }
                         disabled={ this.props.disabled } />
                     )

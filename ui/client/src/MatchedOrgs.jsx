@@ -27,7 +27,7 @@ export default React.createClass({
 
     getInitialState: function () {
         var search = this.props.search;
-        var orgs = window.DataSource.organizations.filter(o => search.matchedOrgs.indexOf(o.id) > -1);
+        var orgs = window.DataSource.organizations.filter(o => search.matchedOrgs.map(o => o.id).indexOf(o.id) > -1);
 
         return {
             search: search,

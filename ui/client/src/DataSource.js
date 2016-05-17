@@ -16,13 +16,19 @@ function DataSource(callback) {
             return qwest.get(baseUrl + '/orgs/');
         })
         .then(function (_xhr, data) {
-            dbData['orgs'] = data;
+            dbData['organizations'] = data;
 
             return qwest.get(baseUrl + '/searches/');
         })
         .then(function (_xhr, data) {
             dbData['searches'] = data;
 
+            return qwest.get(baseUrl + '/match/' + dbData['searches'][0]['id']);
+        })
+        .then(function (_xhr, data) {
+            dbData['searches'][0]['matchedCourses'] = data;
+        })
+        .then(function () {
             callback(dbData);
         })
         .catch(function (msg) {

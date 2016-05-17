@@ -14,7 +14,7 @@ export default React.createClass({
 
     getInitialState: function () {
         var org = window.DataSource.organizations.filter(o => o.id == this.props.params.id)[0];
-        var courses = window.DataSource.courses.filter(c => org.courses.indexOf(c.id) > -1);
+        var courses = window.DataSource.courses.filter(c => org.courses.map(c => c.id).indexOf(c.id) > -1);
 
         return {
             // hardcode here
@@ -38,9 +38,7 @@ export default React.createClass({
                     <CardTitle title={ this.state.org.title } />
 
                     <CardText>
-                        <div>
-                            { this.state.org.description }
-                        </div>
+                        <div dangerouslySetInnerHTML={{__html: this.state.org.description }}></div>
 
                         <h3>Courses offered:</h3>
 

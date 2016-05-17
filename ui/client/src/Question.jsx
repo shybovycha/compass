@@ -72,7 +72,7 @@ export default React.createClass({
 
                 <CardTitle title={ this.props.title } />
 
-                { this.getContent() }
+                <div dangerouslySetInnerHTML={{ __html: this.getContent() }}></div>
 
                 <CardActions>
                     { this.getOptions() }

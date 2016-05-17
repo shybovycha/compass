@@ -1,6 +1,7 @@
 package pl.edu.uj.compass.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,10 +19,18 @@ public class Search {
     @OneToMany(targetEntity = Answer.class, fetch = FetchType.EAGER)
     private List<Answer> answers;
 
+    @Column(name = "created_at")
+    public Date createdAt;
+
     public Search() {}
 
     public Search(User user) {
         this.user = user;
+    }
+
+    @PrePersist
+    void createdAt() {
+        this.createdAt = new Date();
     }
 
     public long getId() {
@@ -46,5 +55,13 @@ public class Search {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -27,7 +27,10 @@ export default React.createClass({
 
     getInitialState: function () {
         var search = this.props.search;
-        var courses = window.DataSource.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);
+        var courses = this.props.search.matchedCourses || [];
+
+        if (courses.length > 0 && typeof(courses[0]['id']) === 'undefined')
+            courses = window.DataSource.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);
 
         return {
             search: search,

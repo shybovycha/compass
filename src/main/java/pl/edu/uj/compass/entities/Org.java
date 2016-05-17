@@ -1,5 +1,7 @@
 package pl.edu.uj.compass.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,11 @@ public class Org {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @JsonProperty("title")
     private String name;
+
+    @Lob
+    private String description;
 
     @ManyToMany(targetEntity = Course.class)
     @JoinTable(name = "org_courses",
@@ -49,5 +55,13 @@ public class Org {
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

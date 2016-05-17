@@ -1,6 +1,7 @@
 package pl.edu.uj.compass.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,6 +16,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @JsonProperty("title")
     private String name;
 
     @Lob

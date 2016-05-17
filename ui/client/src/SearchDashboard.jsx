@@ -20,11 +20,17 @@ export default React.createClass({
         hashHistory.push('/questionnaire');
     },
 
+    getDateStr: function (search) {
+        var date = new Date(search.createdAt);
+
+        return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    },
+
     render: function () {
         return (
             <div className="container col">
                 <div className="hcenter">
-                    { this.state.searches.map(search => <MatchedCourses search={ search } title={ 'Completed on ' + search.createdAt } expanded={ true } />) }
+                    { this.state.searches.map(search => <MatchedCourses search={ search } title={ 'Completed on ' + this.getDateStr(search) } expanded={ true } />) }
                 </div>
             </div>
         );
