@@ -7,14 +7,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Question from './Question';
 import Icon from './Icon';
 
-import Stub from './Stub';
+// import Stub from './Stub';
 
 export default React.createClass({
     propTypes: {},
 
     getInitialState: function () {
-        var org = Stub.organizations.filter(o => o.id == this.props.params.id)[0];
-        var courses = Stub.courses.filter(c => org.courses.indexOf(c.id) > -1);
+        var org = window.DataSource.organizations.filter(o => o.id == this.props.params.id)[0];
+        var courses = window.DataSource.courses.filter(c => org.courses.indexOf(c.id) > -1);
 
         return {
             // hardcode here

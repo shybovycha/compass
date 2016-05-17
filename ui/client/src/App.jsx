@@ -16,6 +16,7 @@ import CoursePage from './CoursePage';
 
 import SidebarMenu from './SidebarMenu';
 
+import DataSourceLoader from './DataSource';
 import Stub from './Stub';
 
 const App = React.createClass({
@@ -50,7 +51,11 @@ const App = React.createClass({
 
 injectTapEventPlugin();
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
+DataSourceLoader(function (dbData) {
+    window.DataSource = dbData;
+
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    );
+});

@@ -8,3 +8,4 @@ ui/build/
 .DS_Store
 ui/client/build
 ui/admin/build
+*.out

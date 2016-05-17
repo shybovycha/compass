@@ -1,11 +1,15 @@
 package pl.edu.uj.compass.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by shybovycha on 12/05/16.
  */
+@JsonIgnoreProperties(value = { "course" })
 @Entity
 public class Question {
     @Id
@@ -17,7 +21,8 @@ public class Question {
     @Lob
     private String content;
 
-    @OneToMany(targetEntity = QuestionOption.class, fetch = FetchType.EAGER)
+    @JsonProperty("options")
+    @OneToMany(targetEntity = QuestionOption.class, fetch = FetchType.EAGER, mappedBy = "question", cascade = CascadeType.ALL)
     private List<QuestionOption> questionOptions;
 
     private String imageUrl;

@@ -9,7 +9,7 @@ export default React.createClass({
     propTypes: {
         imgUrl: React.PropTypes.string,
         content: React.PropTypes.string,
-        style: React.PropTypes.oneOf([ 'SINGLE_CHOICE', 'MULTIPLE_CHOICE', 'RANKING' ]),
+        style: React.PropTypes.oneOf([ 'SINGLE_CHOICE', 'MULTIPLE_CHOICE', 'RANKING', 'RANGING' ]),
         options: React.PropTypes.array,
         answer: React.PropTypes.array
     },
@@ -26,7 +26,8 @@ export default React.createClass({
     // },
 
     getOptions: function () {
-        if (this.props.style == 'SINGLE_CHOICE')
+        // this should eventually be split into three different input controls
+        if (this.props.style == 'SINGLE_CHOICE' || this.props.style == 'RANKING' || this.props.style == 'RANGING')
             return <RadioOptions
                 options={ this.props.options }
                 disabled={ this.state.disabled }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @EnableAutoConfiguration
 @EnableJpaRepositories("pl.edu.uj.compass.repositories")
 @EntityScan("pl.edu.uj.compass.entities")
-@ComponentScan("pl.edu.uj.compass.matcher")
+@ComponentScan(basePackages = { "pl.edu.uj.compass.matcher", "pl.edu.uj.compass.controllers" })
 @Controller
 @SpringBootApplication
 public class RootController {

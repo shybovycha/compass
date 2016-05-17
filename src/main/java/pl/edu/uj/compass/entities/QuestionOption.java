@@ -1,10 +1,13 @@
 package pl.edu.uj.compass.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 /**
  * Created by shybovycha on 12/05/16.
  */
+@JsonIgnoreProperties(value = { "question" })
 @Entity
 public class QuestionOption {
     @Id
@@ -13,7 +16,7 @@ public class QuestionOption {
 
     private String value;
 
-    @OneToOne
+    @ManyToOne
     private Question question;
 
     public QuestionOption() {}

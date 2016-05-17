@@ -1,11 +1,15 @@
 package pl.edu.uj.compass.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by shybovycha on 12/05/16.
  */
+@JsonIgnoreProperties(value = { "search" })
 @Entity
 public class Answer {
     @Id
@@ -18,6 +22,7 @@ public class Answer {
     @ManyToOne
     private Search search;
 
+    @JsonProperty("options")
     @ManyToMany(targetEntity = QuestionOption.class)
     private List<QuestionOption> questionOptions;
 

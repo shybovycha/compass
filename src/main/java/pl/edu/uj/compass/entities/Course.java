@@ -1,11 +1,14 @@
 package pl.edu.uj.compass.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by shybovycha on 12/05/16.
  */
+@JsonIgnoreProperties(value = { "courseQuestions" })
 @Entity
 public class Course {
     @Id

@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import Icon from './Icon';
 
-import Stub from './Stub';
+// import Stub from './Stub';
 
 export default React.createClass({
     propTypes: {
@@ -27,7 +27,7 @@ export default React.createClass({
 
     getInitialState: function () {
         var search = this.props.search;
-        var courses = Stub.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);
+        var courses = window.DataSource.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);
 
         return {
             search: search,

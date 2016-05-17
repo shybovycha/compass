@@ -3,19 +3,16 @@ import React from 'react';
 import Question from './Question';
 import MatchedCourses from './MatchedCourses';
 
-import Stub from './Stub';
+// import Stub from './Stub';
 
 export default React.createClass({
     propTypes: {},
 
     getInitialState: function () {
-        var search = Stub.searches.filter(search => this.props.params.id == search.id)[0];
-        var answers = search.answers.map(a => Object.assign(a, { question: Stub.questions.filter(q => q.id == a.question)[0] }));
-
-        // search = Object.assign(search, { matchedCourses: Stub.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1) });
+        var search = window.DataSource.searches.filter(search => this.props.params.id == search.id)[0];
+        var answers = search.answers.map(a => Object.assign(a, { question: window.DataSource.questions.filter(q => q.id == a.question)[0] }));
 
         return {
-            // hardcode here
             search: search,
             answers: answers
         };

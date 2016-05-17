@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import Icon from './Icon';
 
-import Stub from './Stub';
+// import Stub from './Stub';
 
 export default React.createClass({
     propTypes: {
@@ -27,7 +27,7 @@ export default React.createClass({
 
     getInitialState: function () {
         var search = this.props.search;
-        var orgs = Stub.organizations.filter(o => search.matchedOrgs.indexOf(o.id) > -1);
+        var orgs = window.DataSource.organizations.filter(o => search.matchedOrgs.indexOf(o.id) > -1);
 
         return {
             search: search,

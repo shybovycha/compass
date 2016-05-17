@@ -8,7 +8,7 @@ import MatchedCourses from './MatchedCourses';
 import Question from './Question';
 import Icon from './Icon';
 
-import Stub from './Stub';
+// import Stub from './Stub';
 
 export default React.createClass({
     propTypes: {
@@ -19,7 +19,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             // hardcode
-            questions: Stub.questions,
+            questions: window.DataSource.questions,
             currentQuestion: 0,
             matchedOrgs: 0
         };
@@ -35,7 +35,7 @@ export default React.createClass({
     },
 
     getSearch: function () {
-        var searches = Stub.searches;
+        var searches = window.DataSource.searches;
 
         return searches[0];
     },

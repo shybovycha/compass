@@ -5,14 +5,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import MatchedCourses from './MatchedCourses';
 
-import Stub from './Stub';
+// import Stub from './Stub';
 
 export default React.createClass({
     propTypes: {},
 
     getInitialState: function () {
         return {
-            searches: Stub.searches
+            searches: window.DataSource.searches
         };
     },
 
