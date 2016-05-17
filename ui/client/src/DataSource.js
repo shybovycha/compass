@@ -2,7 +2,7 @@ import qwest from 'qwest';
 
 function DataSource(callback) {
     var dbData = {};
-    var baseUrl = 'http://localhost:8080';
+    var baseUrl = '';
 
     qwest.get(baseUrl + '/courses/')
         .then(function (_xhr, data) {
