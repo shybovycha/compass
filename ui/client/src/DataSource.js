@@ -23,13 +23,17 @@ function DataSource(callback) {
         .then(function (_xhr, data) {
             dbData['searches'] = data;
 
-            return qwest.get(baseUrl + '/match/' + dbData['searches'][0]['id']);
-        })
-        .then(function (_xhr, data) {
-            dbData['searches'][0]['matchedCourses'] = data;
-        })
-        .then(function () {
-            callback(dbData);
+            if (data.length > 0) {
+                return qwest.get(baseUrl + '/match/' + dbData['searches'][0]['id'])
+                    .then(function (_xhr, data) {
+                        dbData['searches'][0]['matchedCourses'] = data;
+                    })
+                    .then(function () {
+                        callback(dbData);
+                    });
+            } else {
+                callback(dbData);
+            }
         })
         .catch(function (msg) {
             console.error('Error during data fetch occured:', msg);

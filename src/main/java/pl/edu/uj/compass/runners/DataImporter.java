@@ -15,6 +15,8 @@ import pl.edu.uj.compass.entities.*;
 import pl.edu.uj.compass.matcher.CourseMatcher;
 import pl.edu.uj.compass.repositories.*;
 
+import java.util.stream.Collectors;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -135,7 +137,7 @@ public class DataImporter {
 //            });
 //            courseRepository.save(majorsTexts.stream().map(t -> new Course(t)).collect(Collectors.toList()));
 //            orgRepository.save(orgsTexts.stream().map(t -> new Org(t)).collect(Collectors.toList()));
-
+//
 //            {
 //                Org o = orgRepository.findByName("Akademia Górniczo-Hutnicza");
 //                o.setCourses(Arrays.asList(courseRepository.findByName("Medical Analytics"), courseRepository.findByName("Informatics"), courseRepository.findByName("Mechatronics")));
@@ -172,13 +174,15 @@ public class DataImporter {
 //                orgRepository.save(o);
 //            }
 
-            /*{
+            {
                 Course c = courseRepository.findByName("Medical Analytics");
                 {
                     Question q = questionRepository.findByTitle("Do you like to watch the machines work?");
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -190,6 +194,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -201,6 +207,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -212,6 +220,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -223,6 +233,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -234,6 +246,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -245,6 +259,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -256,6 +272,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -267,6 +285,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -278,6 +298,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -289,6 +311,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -300,6 +324,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -311,6 +337,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -322,6 +350,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -333,6 +363,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -344,6 +376,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -355,6 +389,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -366,6 +402,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -377,6 +415,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -388,6 +428,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -399,6 +441,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -410,6 +454,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -421,6 +467,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -432,6 +480,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -443,6 +493,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -454,6 +506,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -465,6 +519,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -476,6 +532,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -487,6 +545,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -498,6 +558,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -509,6 +571,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -520,6 +584,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -531,6 +597,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -542,6 +610,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -553,6 +623,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -564,6 +636,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -575,6 +649,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -586,6 +662,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -597,6 +675,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -608,6 +688,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -619,6 +701,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -630,6 +714,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -641,6 +727,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -652,6 +740,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -663,6 +753,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -674,6 +766,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -685,6 +779,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -696,6 +792,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -707,6 +805,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -718,11 +818,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -732,6 +836,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -743,6 +849,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -754,6 +862,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -765,6 +875,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -776,6 +888,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -787,6 +901,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -798,6 +914,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -809,6 +927,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -820,6 +940,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -831,6 +953,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -842,6 +966,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -853,6 +979,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -864,6 +992,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -875,6 +1005,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -886,6 +1018,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -897,6 +1031,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -908,6 +1044,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -919,6 +1057,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -930,6 +1070,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -941,6 +1083,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -952,6 +1096,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -963,6 +1109,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -974,6 +1122,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -985,6 +1135,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -996,6 +1148,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1007,6 +1161,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1018,6 +1174,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1029,6 +1187,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1040,6 +1200,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1051,6 +1213,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1062,6 +1226,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1073,6 +1239,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1084,6 +1252,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1095,6 +1265,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1106,6 +1278,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1117,6 +1291,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1128,6 +1304,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1139,6 +1317,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1150,6 +1330,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1161,6 +1343,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1172,6 +1356,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1183,6 +1369,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1194,6 +1382,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1205,6 +1395,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1216,6 +1408,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1227,6 +1421,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1238,6 +1434,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1249,6 +1447,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1260,6 +1460,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1271,11 +1473,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -1285,6 +1491,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1296,6 +1504,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1307,6 +1517,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1318,6 +1530,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1329,6 +1543,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1340,6 +1556,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1351,6 +1569,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1362,6 +1582,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1373,6 +1595,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1384,6 +1608,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1395,6 +1621,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1406,6 +1634,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1417,6 +1647,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1428,6 +1660,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1439,6 +1673,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1450,6 +1686,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1461,6 +1699,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1472,6 +1712,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1483,6 +1725,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1494,6 +1738,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1505,6 +1751,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1516,6 +1764,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1527,6 +1777,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1538,6 +1790,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1549,6 +1803,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1560,6 +1816,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1571,6 +1829,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1582,6 +1842,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1593,6 +1855,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1604,6 +1868,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1615,6 +1881,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1626,6 +1894,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1637,6 +1907,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1648,6 +1920,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1659,6 +1933,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1670,6 +1946,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1681,6 +1959,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1692,6 +1972,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1703,6 +1985,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1714,6 +1998,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1725,6 +2011,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1736,6 +2024,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1747,6 +2037,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1758,6 +2050,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1769,6 +2063,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1780,6 +2076,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1791,6 +2089,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1802,6 +2102,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1813,6 +2115,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1824,11 +2128,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -1838,6 +2146,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1849,6 +2159,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1860,6 +2172,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1871,6 +2185,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1882,6 +2198,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1893,6 +2211,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1904,6 +2224,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1915,6 +2237,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1926,6 +2250,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1937,6 +2263,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1948,6 +2276,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1959,6 +2289,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1970,6 +2302,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1981,6 +2315,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -1992,6 +2328,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2003,6 +2341,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2014,6 +2354,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2025,6 +2367,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2036,6 +2380,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2047,6 +2393,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2058,6 +2406,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2069,6 +2419,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2080,6 +2432,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2091,6 +2445,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2102,6 +2458,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2113,6 +2471,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2124,6 +2484,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2135,6 +2497,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2146,6 +2510,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2157,6 +2523,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2168,6 +2536,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2179,6 +2549,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2190,6 +2562,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2201,6 +2575,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2212,6 +2588,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2223,6 +2601,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2234,6 +2614,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2245,6 +2627,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2256,6 +2640,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2267,6 +2653,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2278,6 +2666,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2289,6 +2679,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2300,6 +2692,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2311,6 +2705,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2322,6 +2718,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2333,6 +2731,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2344,6 +2744,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2355,6 +2757,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2366,6 +2770,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2377,11 +2783,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -2391,6 +2801,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2402,6 +2814,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2413,6 +2827,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2424,6 +2840,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2435,6 +2853,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2446,6 +2866,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2457,6 +2879,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2468,6 +2892,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2479,6 +2905,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2490,19 +2918,22 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
 
-                */
-            {Course c = courseRepository.findByName("Design");
+
                 {
                     Question q = questionRepository.findByTitle("Do you like to analyze various phenomena?");
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2514,6 +2945,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2525,6 +2958,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2536,6 +2971,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2547,6 +2984,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2558,6 +2997,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2569,6 +3010,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2580,6 +3023,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2591,6 +3036,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2602,6 +3049,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2613,6 +3062,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2624,6 +3075,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2635,6 +3088,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2646,6 +3101,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2657,6 +3114,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2668,6 +3127,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2679,6 +3140,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2690,6 +3153,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2701,6 +3166,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2712,6 +3179,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2723,6 +3192,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2734,6 +3205,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2745,6 +3218,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2756,6 +3231,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2767,6 +3244,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2778,6 +3257,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2789,6 +3270,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2800,6 +3283,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2811,6 +3296,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2822,6 +3309,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2833,6 +3322,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2844,6 +3335,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2855,6 +3348,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2866,6 +3361,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2877,6 +3374,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2888,6 +3387,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2899,6 +3400,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2910,6 +3413,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2921,6 +3426,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2932,13 +3439,17 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
-            }
 
+                courseRepository.save(c);
+            }
+/*
             {
                 Course c = courseRepository.findByName("Psychology");
                 {
@@ -2946,6 +3457,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2957,6 +3470,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2968,6 +3483,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2979,6 +3496,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -2990,6 +3509,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3001,6 +3522,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3012,6 +3535,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3023,6 +3548,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3034,6 +3561,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3045,6 +3574,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3056,6 +3587,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3067,6 +3600,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3078,6 +3613,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3089,6 +3626,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3100,6 +3639,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3111,6 +3652,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3122,6 +3665,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3133,6 +3678,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3144,6 +3691,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3155,6 +3704,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3166,6 +3717,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3177,6 +3730,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3188,6 +3743,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3199,6 +3756,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3210,6 +3769,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3221,6 +3782,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3232,6 +3795,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3243,6 +3808,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3254,6 +3821,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3265,6 +3834,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3276,6 +3847,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3287,6 +3860,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3298,6 +3873,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3309,6 +3886,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3320,6 +3899,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3331,6 +3912,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3342,6 +3925,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3353,6 +3938,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3364,6 +3951,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3375,6 +3964,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3386,6 +3977,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3397,6 +3990,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3408,6 +4003,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3419,6 +4016,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3430,6 +4029,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3441,6 +4042,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3452,6 +4055,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3463,6 +4068,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3474,6 +4081,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3485,11 +4094,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -3499,6 +4112,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3510,6 +4125,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3521,6 +4138,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3532,6 +4151,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3543,6 +4164,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3554,6 +4177,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3565,6 +4190,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3576,6 +4203,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3587,6 +4216,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3598,6 +4229,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3609,6 +4242,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3620,6 +4255,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3631,6 +4268,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3642,6 +4281,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3653,6 +4294,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3664,6 +4307,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3675,6 +4320,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3686,6 +4333,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3697,6 +4346,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3708,6 +4359,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3719,6 +4372,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3730,6 +4385,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3741,6 +4398,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3752,6 +4411,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3763,6 +4424,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3774,6 +4437,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3785,6 +4450,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3796,6 +4463,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3807,6 +4476,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3818,6 +4489,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3829,6 +4502,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3840,6 +4515,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3851,6 +4528,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3862,6 +4541,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3873,6 +4554,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3884,6 +4567,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3895,6 +4580,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3906,6 +4593,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3917,6 +4606,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3928,6 +4619,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3939,6 +4632,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3950,6 +4645,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3961,6 +4658,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3972,6 +4671,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3983,6 +4684,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -3994,6 +4697,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4005,6 +4710,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4016,6 +4723,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4027,6 +4736,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4038,11 +4749,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -4052,6 +4767,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4063,6 +4780,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4074,6 +4793,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4085,6 +4806,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4096,6 +4819,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4107,6 +4832,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4118,6 +4845,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4129,6 +4858,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4140,6 +4871,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4151,6 +4884,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4162,6 +4897,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4173,6 +4910,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4184,6 +4923,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4195,6 +4936,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4206,6 +4949,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4217,6 +4962,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4228,6 +4975,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4239,6 +4988,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4250,6 +5001,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4261,6 +5014,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4272,6 +5027,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4283,6 +5040,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4294,6 +5053,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4305,6 +5066,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4316,6 +5079,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4327,6 +5092,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4338,6 +5105,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4349,6 +5118,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4360,6 +5131,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4371,6 +5144,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4382,6 +5157,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4393,6 +5170,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4404,6 +5183,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4415,6 +5196,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4426,6 +5209,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4437,6 +5222,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4448,6 +5235,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4459,6 +5248,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4470,6 +5261,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4481,6 +5274,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4492,6 +5287,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4503,6 +5300,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4514,6 +5313,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4525,6 +5326,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4536,6 +5339,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4547,6 +5352,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4558,6 +5365,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4569,6 +5378,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4580,6 +5391,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4591,11 +5404,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -4605,6 +5422,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4616,6 +5435,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4627,6 +5448,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4638,6 +5461,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4649,6 +5474,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4660,6 +5487,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4671,6 +5500,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4682,6 +5513,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4693,6 +5526,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4704,6 +5539,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4715,6 +5552,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4726,6 +5565,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4737,6 +5578,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4748,6 +5591,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4759,6 +5604,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4770,6 +5617,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4781,6 +5630,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4792,6 +5643,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4803,6 +5656,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4814,6 +5669,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4825,6 +5682,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4836,6 +5695,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4847,6 +5708,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4858,6 +5721,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4869,6 +5734,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4880,6 +5747,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4891,6 +5760,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4902,6 +5773,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4913,6 +5786,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4924,6 +5799,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4935,6 +5812,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4946,6 +5825,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4957,6 +5838,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4968,6 +5851,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4979,6 +5864,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -4990,6 +5877,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5001,6 +5890,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5012,6 +5903,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5023,6 +5916,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5034,6 +5929,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5045,6 +5942,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5056,6 +5955,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5067,6 +5968,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5078,6 +5981,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5089,6 +5994,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5100,6 +6007,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5111,6 +6020,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5122,6 +6033,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5133,6 +6046,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5144,11 +6059,15 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
+
+                courseRepository.save(c);
             }
 
             {
@@ -5158,6 +6077,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5169,6 +6090,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5180,6 +6103,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5191,6 +6116,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5202,6 +6129,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5213,6 +6142,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5224,6 +6155,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5235,6 +6168,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5246,6 +6181,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5257,6 +6194,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5268,6 +6207,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5279,6 +6220,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5290,6 +6233,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5301,6 +6246,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5312,6 +6259,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5323,6 +6272,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5334,6 +6285,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5345,6 +6298,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5356,6 +6311,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5367,6 +6324,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5378,6 +6337,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5389,6 +6350,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5400,6 +6363,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5411,6 +6376,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5422,6 +6389,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5433,6 +6402,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5444,6 +6415,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5455,6 +6428,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5466,6 +6441,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5477,6 +6454,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5488,6 +6467,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5499,6 +6480,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5510,6 +6493,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5521,6 +6506,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5532,6 +6519,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5543,6 +6532,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5554,6 +6545,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5565,6 +6558,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5576,6 +6571,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5587,6 +6584,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5598,6 +6597,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5609,6 +6610,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5620,6 +6623,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5631,6 +6636,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5642,6 +6649,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5653,6 +6662,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5664,6 +6675,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5675,6 +6688,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5686,6 +6701,8 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 2), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
@@ -5697,12 +6714,14 @@ public class DataImporter {
                     QuestionOption qo1 = q.getQuestionOptions().get(0), qo2 = q.getQuestionOptions().get(1);
                     CourseQuestion cq = new CourseQuestion(c, q);
                     courseQuestionRepository.save(cq);
+                    c.getCourseQuestions().add(cq);
+
                     List<CourseQuestionOption> cqos = Arrays.asList(new CourseQuestionOption(cq, qo1, 0), new CourseQuestionOption(cq, qo2, 0));
                     courseOptionRepository.save(cqos);
                     cq.setCourseQuestionOptions(cqos);
                     courseQuestionRepository.save(cq);
                 }
-            }
+            }*/
         };
     }
 }

@@ -7,6 +7,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Icon from './Icon';
 import Rating from './Rating';
 
+import qwest from 'qwest';
+
 export default React.createClass({
     propTypes: {},
 
@@ -15,7 +17,10 @@ export default React.createClass({
     },
 
     startQuestionnaire: function () {
-        hashHistory.push('/questionnaire');
+        qwest.post('/searches/create').then(function (_xhr, data) {
+            window.localStorage.setItem('search', JSON.stringify(data));
+            hashHistory.push('/questionnaire');
+        });
     },
 
     render: function () {

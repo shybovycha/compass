@@ -11,7 +11,8 @@ export default React.createClass({
         content: React.PropTypes.string,
         style: React.PropTypes.oneOf([ 'SINGLE_CHOICE', 'MULTIPLE_CHOICE', 'RANKING', 'RANGING' ]),
         options: React.PropTypes.array,
-        answer: React.PropTypes.array
+        answer: React.PropTypes.array,
+        onAnswerChanged: React.PropTypes.func
     },
 
     getInitialState: function () {
@@ -21,9 +22,9 @@ export default React.createClass({
         };
     },
 
-    // onAnswerSubmitted: function (answer) {
-    //     this.setState({ answer: answer });
-    // },
+    onOptionChanged: function (evt, newValue) {
+        this.props.onAnswerChanged(newValue);
+    },
 
     getOptions: function () {
         // this should eventually be split into three different input controls
@@ -31,13 +32,15 @@ export default React.createClass({
             return <RadioOptions
                 options={ this.props.options }
                 disabled={ this.state.disabled }
-                checked={ this.state.answer } />;
+                checked={ this.state.answer }
+                onChange={ this.onOptionChanged } />;
 
         else if (this.props.style == 'MULTIPLE_CHOICE')
             return <CheckboxOptions
                 options={ this.props.options }
                 disabled={ this.state.disabled }
-                checked={ this.state.answer } />;
+                checked={ this.state.answer }
+                onChange={ this.onOptionChanged } />;
 
         // else if (this.props.style == 'RANKING')
         //     return <RankingOptions options={ this.props.options } />;

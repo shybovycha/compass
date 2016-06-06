@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.edu.uj.compass.entities.Search;
 import pl.edu.uj.compass.repositories.SearchRepository;
 
@@ -26,6 +23,12 @@ public class SearchController {
     @ResponseBody
     List<Search> all() {
         return (List<Search>) searchRepository.findAll();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    Search read(@PathVariable("id") Long searchId) {
+        return searchRepository.findOne(searchId);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")

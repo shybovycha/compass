@@ -10,6 +10,8 @@ import Icon from './Icon';
 
 // import Stub from './Stub';
 
+import qwest from 'qwest';
+
 export default React.createClass({
     propTypes: {
         title: React.PropTypes.string,
@@ -31,13 +33,34 @@ export default React.createClass({
     },
 
     nextQuestion: function () {
-        this.setState({ currentQuestion: (this.state.currentQuestion + 1) % this.state.questions.length, matchedOrgs: this.state.matchedOrgs + 1 });
+        debugger;
+        var searchId = this.getSearch().id;
+        var questionId = this.getQuestion().id;
+        var questionOptionId = this.getQuestion().answer;
+
+        qwest.post('/answers/create', { search_id: searchId, question_id: questionId, question_option_id: questionOptionId })
+            .then((_xht, _data) => {
+                return qwest.get('/match/' + searchId);
+            })
+            .then((_xhr, data) => {
+                debugger;
+                this.setState({
+                    currentQuestion: (this.state.currentQuestion + 1) % this.state.questions.length,
+                    matchedOrgs: data
+                });
+            })
+            .catch(function (msg) {
+                console.error('Error during data fetch occured:', msg);
+            });
     },
 
     getSearch: function () {
-        var searches = window.DataSource.searches;
+        return JSON.parse(window.localStorage.getItem('search')) || { id: null };
+    },
 
-        return searches[0];
+    currentAnswerChanged: function (newAnswer) {
+        var question = this.getQuestion();
+        question.answer = newAnswer;
     },
 
     render: function () {
@@ -46,7 +69,7 @@ export default React.createClass({
                 <div className="col fill-parent">
                     { this.state.matchedOrgs > 0 ? <MatchedCourses title="Matched so far" search={ this.getSearch() } /> : '' }
 
-                    <Question {...this.getQuestion()} />
+                    <Question onAnswerChanged={ this.currentAnswerChanged } {...this.getQuestion()} />
                 </div>
 
                 <div className="row bottom-button">
