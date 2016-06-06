@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+</head>
+
+<body class="color-5">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="#"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 0;">
+                <li><a href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <div id="stack_iman" class="stack stack--iman">
+                <div class="stack__item" v-for="question in questions">
+                    <div class="stack__item__content question container-fluid">
+                        <div class="question__title">{{ question.title }}</div>
+                        <img v-if="question.imageUrl" src="{{ question.imageUrl }}" alt="image" />
+                        <div class="row question__description">
+                            <div class="container-fluid" v-if="question.content">{{{ question.content }}}</div>
+                        </div>
+                        <div class="row question__options">
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-danger question__options__option button--reject" v-on:click="answer(question, question.options[2])" data-stack="stack_iman">{{ question.options[2].value }}</a>
+                                <a class="btn btn-warning question__options__option button--reject" v-on:click="answer(question, question.options[1])" data-stack="stack_iman">{{ question.options[1].value }}</a>
+                                <a class="btn btn-success question__options__option button--accept" v-on:click="answer(question, question.options[0])" data-stack="stack_iman">{{ question.options[0].value }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/vue.js"></script>
+    <script type="text/javascript" src="/vue-resource.min.js"></script>
+    <script type="text/javascript">
+    Vue.use(VueResource);
+
+    new Vue({
+        el: '#stack_iman',
+        data: {
+            questions: []
+        },
+        methods: {
+            answer: function(question, option) {
+                console.log('Answering ', question, 'with', option);
+            }
+        },
+        ready: function() {
+            var that = this;
+
+            // GET request
+            this.$http({
+                url: '/questions/',
+                method: 'GET'
+            }).then(function(response) {
+                that.data.questions = response.data;
+            }, function(response) {
+                // error callback
+            });
+        },
+    });
+    </script>
+    <script type="text/javascript" src="/modernizr.min.js"></script>
+    <script type="text/javascript" src="/dynamics.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+</body>
+
+</html>
