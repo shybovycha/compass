@@ -21,9 +21,10 @@ export default React.createClass({
     getInitialState: function () {
         return {
             // hardcode
-            questions: window.DataSource.questions,
+            questions: this.props.questions || window.DataSource.questions,
             currentQuestion: 0,
-            matchedOrgs: 0
+            matchedOrgs: 0,
+            search: JSON.parse(window.localStorage.getItem('search') || "{}")
         };
     },
 
@@ -33,10 +34,10 @@ export default React.createClass({
     },
 
     nextQuestion: function () {
-        debugger;
-        var searchId = this.getSearch().id;
+        var searchId = this.state.search.id;
         var questionId = this.getQuestion().id;
         var questionOptionId = this.getQuestion().answer;
+        var that = this;
 
         qwest.post('/answers/create', { search_id: searchId, question_id: questionId, question_option_id: questionOptionId })
             .then((_xht, _data) => {
@@ -44,18 +45,17 @@ export default React.createClass({
             })
             .then((_xhr, data) => {
                 debugger;
-                this.setState({
-                    currentQuestion: (this.state.currentQuestion + 1) % this.state.questions.length,
-                    matchedOrgs: data
+
+                that.state.search.matchedCourses = data;
+
+                that.setState({
+                    currentQuestion: (that.state.currentQuestion + 1) % that.state.questions.length,
+                    matchedOrgs: data.length
                 });
             })
             .catch(function (msg) {
                 console.error('Error during data fetch occured:', msg);
             });
-    },
-
-    getSearch: function () {
-        return JSON.parse(window.localStorage.getItem('search')) || { id: null };
     },
 
     currentAnswerChanged: function (newAnswer) {
@@ -67,7 +67,7 @@ export default React.createClass({
         return (
             <div className="questionnaire container col">
                 <div className="col fill-parent">
-                    { this.state.matchedOrgs > 0 ? <MatchedCourses title="Matched so far" search={ this.getSearch() } /> : '' }
+                    { this.state.matchedOrgs > 0 ? <MatchedCourses title="Matched so far" search={ this.state.search } /> : '' }
 
                     <Question onAnswerChanged={ this.currentAnswerChanged } {...this.getQuestion()} />
                 </div>

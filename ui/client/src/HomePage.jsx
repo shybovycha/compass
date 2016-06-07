@@ -17,10 +17,18 @@ export default React.createClass({
     },
 
     startQuestionnaire: function () {
-        qwest.post('/searches/create').then(function (_xhr, data) {
-            window.localStorage.setItem('search', JSON.stringify(data));
-            hashHistory.push('/questionnaire');
-        });
+        qwest.post('/searches/create')
+            .then(function (_xhr, data) {
+                window.localStorage.setItem('search', JSON.stringify(data));
+
+                return qwest.get('/questions/' + data['id']);
+            })
+            .then(function (_xhr, data) {
+                if (data)
+                    window.DataSource.questions = data;
+
+                hashHistory.push('/questionnaire');
+            });
     },
 
     render: function () {

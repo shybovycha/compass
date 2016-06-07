@@ -29,8 +29,8 @@ export default React.createClass({
         var search = this.props.search;
         var courses = this.props.search.matchedCourses || [];
 
-        if (courses.length > 0 && typeof(courses[0]['id']) === 'undefined')
-            courses = window.DataSource.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);
+        /*if (courses.length > 0 && typeof(courses[0]['id']) === 'undefined')
+            courses = window.DataSource.courses.filter(c => search.matchedCourses.indexOf(c.id) > -1);*/
 
         return {
             search: search,
@@ -55,16 +55,16 @@ export default React.createClass({
                 }
 
                 <CardText expandable={ true }>
-                    <div>Matched courses:</div>
-
-                    { this.state.courses.slice(0, this.state.maxItems).map(course =>
-                        <div className="margin-top">
-                            <RaisedButton
-                                onClick={ () => this.showCourse(course) }
-                                label={ course.title }
-                            />
-                        </div>
-                    ) }
+                    <div className="course-list">
+                        { this.props.search.matchedCourses.slice(0, this.state.maxItems).map(course =>
+                            <div className="margin-left margin-top course-list-item">
+                                <RaisedButton
+                                    onClick={ () => this.showCourse(course) }
+                                    label={ course.title }
+                                />
+                            </div>
+                        ) }
+                    </div>
                 </CardText>
 
                 { this.props.showLink == false ? '' :
