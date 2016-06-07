@@ -1,4 +1,36 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(/fonts/roboto/Roboto-Regular.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(/fonts/material-design-icons/Material-Design-Icons.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
 
 body {
     margin: 0;
@@ -123,17 +155,17 @@ body {
 }
 
 .rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  content: "star_border";
-  display: inline-block;
-  padding: 10px 0;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    content: "star_border";
+    display: inline-block;
+    padding: 10px 0;
 }
 
 .rating > i {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
 }
 
 .rating > i:hover:before,
@@ -145,6 +177,6 @@ body {
 .rating > i.selected:before,
 .rating > i.selected ~ i:before,
 .rating > i:hover ~ i:before {
-   content: "star";
-   position: absolute;
+    content: "star";
+    position: absolute;
 }

@@ -33,7 +33,7 @@ public class MatchController {
         List<RankedCourseMatch> matches = matcher.match(search);
 
         return matches.stream()
-                .filter(c -> c.getRank() == 0)
+                .filter(c -> c.getRank() > 0)
                 .sorted((c1, c2) -> Long.compare(c2.getRank(), c1.getRank()))
                 .map(RankedCourseMatch::getCourse)
                 .collect(Collectors.toList());
